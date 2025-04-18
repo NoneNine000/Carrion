@@ -1,10 +1,10 @@
 <div align="center">
 
-# <img src="goggame-1785384169.ico" height=28 /> <a href="https://github.com/Flowseal/">Flowseal</a><a href="https://github.com/Flowseal/zapret-discord-youtube">/zapret-discord-youtube</a> <img src="goggame-1785384169.ico" height=28 />
+# <img src="goggame-1785384169.ico" height=28 /> <a href="https://github.com/NoneNine000">NoneNine000</a><a href="https://github.com/NoneNine000/Carrion">/Carrion</a> <img src="goggame-1785384169.ico" height=28 />
 
-*"Plug & Play"* обход блокировок <img src="https://cdn-icons-png.flaticon.com/128/5968/5968756.png" height=15 /> Discord и <img src="https://cdn-icons-png.flaticon.com/128/1384/1384060.png" height=15 /> YouTube для Windows
+<img src="goggame-1785384169.ico" height=15 /> Carrion <img src="goggame-1785384169.ico" height=15 /> для Windows
 
-Альтернатива https://github.com/bol-van/zapret-win-bundle
+Альтернатива *скоро...*
 </div>
 
 > [!CAUTION]
