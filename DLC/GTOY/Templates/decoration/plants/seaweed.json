@@ -1,0 +1,31 @@
+{
+	"object": {
+		"height": 0,
+		"id": 1077,
+		"name": "",
+		"polyline": [
+			{
+				"x": 0,
+				"y": 0
+			},
+			{
+				"x": 0,
+				"y": -68
+			}
+		],
+		"properties": [
+			{
+				"name": "Sprite",
+				"type": "string",
+				"value": "Objects/vine"
+			}
+		],
+		"rotation": 0,
+		"type": "verlet",
+		"visible": true,
+		"width": 0,
+		"x": 691.333333333333,
+		"y": 823.666666666666
+	},
+	"type": "template"
+}

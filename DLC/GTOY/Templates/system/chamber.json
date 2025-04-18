@@ -1,0 +1,91 @@
+{
+	"object": {
+		"height": 120,
+		"id": 288,
+		"name": "",
+		"properties": [
+			{
+				"name": "AmbientColor",
+				"type": "color",
+				"value": "#ff995d14"
+			},
+			{
+				"name": "BgNoiseBiasX",
+				"type": "float",
+				"value": 1.2
+			},
+			{
+				"name": "BgNoiseBiasY",
+				"type": "float",
+				"value": 0.6
+			},
+			{
+				"name": "BgNoiseBiasZ",
+				"type": "float",
+				"value": 0.2
+			},
+			{
+				"name": "BgNoiseScaleX",
+				"type": "float",
+				"value": 0.001
+			},
+			{
+				"name": "BgNoiseScaleY",
+				"type": "float",
+				"value": 0.4
+			},
+			{
+				"name": "BgNoiseScaleZ",
+				"type": "float",
+				"value": 0.3
+			},
+			{
+				"name": "BgSeed",
+				"type": "int",
+				"value": 123
+			},
+			{
+				"name": "FgNoiseBiasX",
+				"type": "float",
+				"value": 1.5
+			},
+			{
+				"name": "FgNoiseBiasY",
+				"type": "float",
+				"value": 3
+			},
+			{
+				"name": "FgNoiseBiasZ",
+				"type": "float",
+				"value": 0.1
+			},
+			{
+				"name": "FgNoiseScaleX",
+				"type": "float",
+				"value": 0.01
+			},
+			{
+				"name": "FgNoiseScaleY",
+				"type": "float",
+				"value": 1
+			},
+			{
+				"name": "FgNoiseScaleZ",
+				"type": "float",
+				"value": 0.3
+			},
+			{
+				"name": "FgSeed",
+				"type": "int",
+				"value": 23
+			}
+		],
+		"rotation": 0,
+		"type": "chamber",
+		"visible": true,
+		"width": 136,
+		"x": 1428,
+		"y": 236
+	},
+	"type": "template"
+}

@@ -1,0 +1,14 @@
+{ "object":
+    {
+     "height":60,
+     "id":1712,
+     "name":"",
+     "rotation":0,
+     "type":"palm_scanner",
+     "visible":true,
+     "width":74,
+     "x":-37,
+     "y":-30
+    },
+ "type":"template"
+}

@@ -1,0 +1,97 @@
+#DISTRICT 1
+
+floodgate1_switch -> floodgate1;
+
+cobweb_door_switch -> cobweb_door;
+
+junkyard_door_switch -> junkyard_door;
+
+sequence0_sweep = (SWEEP()) -> [sequence0_marker, duration 0] -> [sequence0_marker, duration 5];
+(sequence0.DestroyedState) -> (DELAY(3.25)) -> sequence0_sweep -> sequence0_floodgate;
+
+
+#DISTRICT 2
+laser1 -> laser2 -> laser_door;
+laser_switch -> (PASS(0)) -> laser1;
+laser_switch -> (PASS(1)) -> laser1;
+laser1 -> (PASS(0)) -> (NOT()) -> (laser_switch.EnabledState);
+laser2 -> (PASS(0)) -> (NOT()) -> (laser_switch.EnabledState);
+laser1 -> (PASS(0)) -> laser_switch;
+laser2 -> (PASS(0)) -> laser_switch;
+
+water_entry -> (DELAY(0.5)) -> (NOT()) -> laser1;
+water_entry -> (DELAY(0.55)) -> (NOT()) -> (laser_switch.EnabledState);
+water_entry -> (DELAY(0.55)) -> laser_door;
+
+water_exit_switch -> water_exit_door;
+
+jammer_rec1:Observe((jammer1_holder.Drone));
+jammer_rec1 -> jammed_door1 -> jammed_door2 -> jammed_door3;
+
+cobweb_door_switch2 -> cobweb_door2a -> (NOT()) -> cobweb_door2b;
+
+floodgate2_switch -> floodgate2a -> (NOT()) -> floodgate2b;
+
+floodgate5_switch -> floodgate5;
+floodgate5_switch -> post_jungle_power_node;
+
+#water stuff
+
+water_sweep = (SWEEP()) -> [water_marker, duration 0] -> [water_marker, duration 6];
+
+sum = (SUM());
+
+floodgate3_switch -> (DELAY(1.5)) -> sum;
+floodgate4_switch -> (AMP(6.85)) -> sum;
+
+sum -> water1;
+
+floodgate3_switch -> water4 -> (DELAY(1.5)) -> water2 -> water_sweep -> (DELAY(7)) -> floodgate3;
+
+floodgate4_switch -> water5 -> water3 -> (DELAY(1.5)) -> floodgate4  -> (DELAY(22)) -> water6;
+
+sum2 = (SUM());
+sum2 -> display1;
+floodgate3_switch -> sum2;
+floodgate4_switch -> sum2 -> (DELAY(16)) -> display2;
+
+shortcut_door_switch -> shortcut_door;
+
+sequence1_sweep = (SWEEP()) -> [sequence1_marker, duration 0] -> [sequence1_marker, duration 5];
+(sequence1.DestroyedState) -> (DELAY(3.25)) -> sequence1_sweep -> sequence1_floodgate;
+sequence1 -> (DELAY(2)) -> (NOT()) -> seq1_lamp0;
+sequence1 -> (DELAY(1.7)) -> (NOT()) -> seq1_lamp1;
+
+#DISTRICT 3
+
+floodgate6_switch -> display3 -> floodgate6a -> floodgate6b;
+floodgate7_switch -> floodgate7a -> floodgate7b;
+
+bomb_switch -> (NOT()) -> bomb;
+
+sequence2_sweep = (SWEEP()) -> [sequence2_marker, duration 0] -> [sequence2_marker, duration 5];
+(sequence2.DestroyedState) -> (DELAY(3.25)) -> sequence2_sweep -> sequence2_floodgate;
+
+#tentacles
+
+junkyard_entry -> junkyard_entry_tentacle1 -> junkyard_entry_tentacle2;
+mines_entry -> mines_entry_tentacle1 -> mines_entry_tentacle2;
+jungle_entry -> jungle_entry_tentacle1 -> jungle_entry_tentacle2;
+water_entry -> water_entry_tentacle1 -> water_entry_tentacle2 -> water_entry_tentacle3;
+bureau_entry -> bureau_entry_tentacle1 -> bureau_entry_tentacle2;
+nuclear_entry -> nuclear_entry_tentacle1 -> nuclear_entry_tentacle2 -> nuclear_entry_tentacle3;
+weapons_facility_entry -> weapons_facility_entry_tentacle1 -> weapons_facility_entry_tentacle2;
+bunker_entry -> bunker_entry_tentacle1 -> bunker_entry_tentacle2;
+
+#SCREENS
+
+pc1 -> screen1;
+
+secret_jar -> secret_lamp0;
+secret_jar -> secret_lamp1;
+
+
+#BACKTRACKING ASSISTANCE
+display4_tooltip -> (NOT()) -> display4;
+floodgate3_switch -> (DELAY(5.5)) -> water_lamp1 -> water_lamp2 -> water_lamp3 -> water_lamp4;
+floodgate3_switch -> (DELAY(5.5)) -> (NOT()) -> bureau_lamp1 -> bureau_lamp2 -> bureau_lamp3 -> bureau_lamp4 -> bureau_lamp5;

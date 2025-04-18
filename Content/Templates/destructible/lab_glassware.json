@@ -1,0 +1,25 @@
+{ "object":
+    {
+     "height":9,
+     "id":2358,
+     "name":"",
+     "properties":[
+            {
+             "name":"TypeStr",
+             "type":"string",
+             "value":"lab_glassware"
+            }, 
+            {
+             "name":"Variant",
+             "type":"int",
+             "value":0
+            }],
+     "rotation":0,
+     "type":"destructible",
+     "visible":true,
+     "width":9,
+     "x":-4.5,
+     "y":-4.5
+    },
+ "type":"template"
+}

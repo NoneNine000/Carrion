@@ -1,0 +1,21 @@
+{
+	"object": {
+		"height": 30,
+		"id": 699,
+		"name": "",
+		"properties": [
+			{
+				"name": "TypeStr",
+				"type": "string",
+				"value": "TV_NOISE"
+			}
+		],
+		"rotation": 0,
+		"type": "destructible",
+		"visible": true,
+		"width": 41,
+		"x": 1964,
+		"y": 928
+	},
+	"type": "template"
+}

@@ -1,0 +1,25 @@
+{ "object":
+    {
+     "height":10,
+     "id":2356,
+     "name":"",
+     "properties":[
+            {
+             "name":"IsOn",
+             "type":"bool",
+             "value":false
+            }, 
+            {
+             "name":"TypeStr",
+             "type":"string",
+             "value":"lab_tube_rack"
+            }],
+     "rotation":0,
+     "type":"destructible",
+     "visible":true,
+     "width":11,
+     "x":4300,
+     "y":1398
+    },
+ "type":"template"
+}

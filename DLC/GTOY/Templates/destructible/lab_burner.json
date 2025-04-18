@@ -1,0 +1,25 @@
+{ "object":
+    {
+     "height":7,
+     "id":2354,
+     "name":"",
+     "properties":[
+            {
+             "name":"IsOn",
+             "type":"bool",
+             "value":false
+            }, 
+            {
+             "name":"TypeStr",
+             "type":"string",
+             "value":"lab_burner"
+            }],
+     "rotation":0,
+     "type":"destructible",
+     "visible":true,
+     "width":9,
+     "x":4332,
+     "y":1401
+    },
+ "type":"template"
+}

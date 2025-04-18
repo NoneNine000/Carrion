@@ -1,0 +1,105 @@
+cobweb_door_switch -> cobweb_door -> (NOT()) -> floodgate1 -> (DELAY(0)) -> (PASS(0)) -> (NOT()) -> lever1;
+lever1 -> (PASS(0)) -> cobweb_door_switch;
+lever2 -> (NOT()) -> floodgate2;
+lever3 -> (NOT()) -> floodgate3;
+
+(floodgate1.OperatingState) -> (NOT()) -> (lever1.EnabledState);
+
+#morphing checkpoint
+
+morph:SetMask(mask1);
+morph:SetMask(mask2);
+morph:BuildBowels();
+
+morph_checkpoint -> tentacle1 -> tentacle2 -> tentacle3 -> morph;
+
+condenser_door_switch -> condenser_door;
+
+condenser_floodgate1_switch -> condenser_floodgate1;
+
+cave_floodgate_switch -> cave_floodgate;
+
+cave_event = (SWEEP_EVENT());
+cave_sweep = (SWEEP()) -> [cave_marker, duration 0] -> [cave_event, duration 0] -> [cave_marker, duration 2];
+cave_floodgate_switch -> (DELAY(1)) -> cave_sweep;
+(WAIT_FOR_EVENT(cave_event)) -> cave_floodgate;
+
+condenser_water_event = (SWEEP_EVENT());
+condenser_water_sweep = (SWEEP()) -> [condenser_water_marker, duration 0] -> [condenser_water_event, duration 0] -> [condenser_water_marker, duration 4];
+condenser_water_switch -> (DELAY(0.5)) -> condenser_water_sweep;
+condenser_water_switch -> (NOT()) -> (DELAY(2.5)) -> condenser_water_sweep;
+
+condenser_water_switch -> condenser_water -> (DELAY(3.7)) -> condenser_floodgate2;
+(condenser_floodgate2.OperatingState) -> (NOT()) -> (condenser_water_switch.EnabledState);
+
+#(laser1a.BeamCrossed) -> (PASS(0)) -> laser_switch;
+#laser_switch -> (PASS(0)) -> laser_door1a;
+
+#laser_event = (SWEEP_EVENT());
+#laser_sweep = (SWEEP()) -> [laser_marker, duration 0] -> [laser_event, duration 0] -> [laser_marker, duration 3];
+#laser_switch -> (DELAY(1)) -> laser_sweep;
+#(WAIT_FOR_EVENT(laser_event)) -> laser_door1a;
+
+
+#turret impersonation puzzle
+#turret_door_switch -> turret_door;
+
+#jammers
+
+
+jammer_rec1 -> jammed_door;
+
+jammer_rec1:Observe(jammer1_holder);
+jammer_rec1:Observe(jammer2_holder);
+
+
+jammer3_holder -> (NOT()) -> jammed_door2;
+jammer_rec2 -> jammed_door2 -> jammed_door2b;
+jammer_rec2:Observe((jammer3_holder.Drone));
+
+
+dispenser1_event = (SWEEP_EVENT());
+dispenser1_sweep = (SWEEP()) -> [dispenser1_marker, duration 0] -> [dispenser1_event, duration 0] -> [dispenser1_marker, duration 5];
+dispenser1_switch -> (DELAY(1)) -> dispenser1_sweep;
+(WAIT_FOR_EVENT(dispenser1_event)) -> dispenser1;
+
+generator1_event = (SWEEP_EVENT());
+generator1_sweep = (SWEEP()) -> [generator1_marker, duration 0] -> [generator1_event, duration 0] -> [generator1_marker, duration 5];
+generator1 -> (THRESHOLD(0.35)) -> generator1_sweep;
+(WAIT_FOR_EVENT(generator1_event)) -> generator1_door -> gen1_enabled1 -> gen1_enabled2 -> gen1_enabled3;
+
+dispenser2_switch -> dispenser2;
+generator2 -> (THRESHOLD(0.35)) -> generator2_door -> gen2_enabled1 -> gen2_enabled2 -> gen2_enabled3;
+
+
+
+#OPTIONAL BACKTRACKING
+backtracking_door_switch -> backtracking_door;
+
+laser_switch -> laser_door -> laser;
+laser -> (PASS(0)) -> (NOT()) -> (laser_switch.EnabledState);
+laser -> (PASS(0)) -> laser_switch;
+
+secret_jar -> secret_lamp0;
+secret_jar -> secret_lamp1;
+
+
+#flow assistance
+
+skilljar -> assistance_door1 -> assistance_door2;
+
+
+
+#tentacles
+
+hive2 -> hive2_tentacle1 -> hive2_tentacle2 -> hive2_tentacle3;
+hive3 -> hive3_tentacle1 -> hive3_tentacle2 -> hive3_tentacle3;
+hive4 -> hive4_tentacle1 -> hive4_tentacle2 -> hive4_tentacle3;
+
+
+#SCREENS
+
+pc1 -> screen1;
+pc2 -> screen2;
+pc3 -> screen3;
+pc4 -> screen4;

@@ -1,0 +1,322 @@
+# --- KILLGRID INTRODUCTION ---
+
+kg_intro_jammer1:Observe(kg_intro_j1_observed1);
+
+kg_intro_event = (SWEEP_EVENT());
+kg_intro_sweep = (SWEEP()) -> [kg_intro_marker0, duration 0] -> [kg_intro_event, duration 0] -> [kg_intro_marker0, duration 8];
+
+kg_intro_jammer1 -> kg_intro_sweep;
+
+(WAIT_FOR_EVENT(kg_intro_event)) -> (kg_intro_kg0.DetectionState) -> (kg_intro_kg1.DetectionState) ->
+	(DELAY(2.5)) -> (NOT()) -> kg_intro_kg0 -> kg_intro_kg1 -> (NOT()) ->
+	(DELAY(0.3)) -> kg_intro_door1_a ->
+	(DELAY(0.3)) -> kg_intro_door1_b ->
+    (DELAY(0.3)) -> kg_intro_door1_c ->
+	(DELAY(1.5)) -> kg_intro_lamp1 ->
+	(DELAY(0.3)) -> kg_intro_lamp2 ->
+	(DELAY(0.1)) -> kg_intro_lamp3 ->
+	(DELAY(0.3)) -> kg_intro_lamp4 ->
+	(DELAY(0.5)) -> kg_intro_lamp5 ->
+	(DELAY(0.1)) -> kg_intro_lamp6 ->
+	(DELAY(0.3)) -> kg_intro_lamp7 ->
+	(DELAY(0.3)) -> kg_intro_lamp8;
+
+kg_intro_switch_event = (SWEEP_EVENT());
+kg_intro_switch_sweep = (SWEEP()) -> [kg_intro_marker_solved, duration 0] -> [kg_intro_switch_event, duration 0]
+	-> [kg_intro_marker_solved, duration 2];
+
+kg_intro_switch -> (NOT()) -> (DELAY(0.8)) -> kg_intro_switch_sweep;
+(WAIT_FOR_EVENT(kg_intro_switch_event)) -> (DELAY(0.5)) -> door0a;
+
+# --- CENTRAL ELEVATOR LOOP ---
+
+switch0a -> door0a;
+switch0a -> (NOT()) -> door0b;
+
+door1_event = (SWEEP_EVENT());
+door1_sweep = (SWEEP()) -> [door1_marker, duration 0] -> [door1_event, duration 0] -> [door1_marker, duration 1];
+switch1a -> (DELAY(0.5)) -> door1_sweep;
+(WAIT_FOR_EVENT(door1_event)) -> door1a -> (DELAY(1)) -> door1b;
+
+switch1b -> door1c;
+
+door1d_event = (SWEEP_EVENT());
+door1d_sweep = (SWEEP()) -> [door1d_marker, duration 0] -> [door1d_event, duration 0] -> [door1d_marker, duration 1.5];
+switch1c -> (DELAY(0.5)) -> door1d_sweep -> (DELAY(2)) -> door1d;
+
+elevator2_switch1 -> (PASS(0)) -> (NOT()) -> elevator2_switch2;
+elevator2_switch1 -> (PASS(1)) -> (NOT()) -> elevator2_switch2;
+elevator2_switch2 -> (DELAY(0)) -> (PASS(0)) -> (NOT()) -> elevator2_switch1;
+elevator2_switch2 -> (DELAY(0)) -> (PASS(1)) -> (NOT()) -> elevator2_switch1;
+elevator2_switch1 -> elevator2;
+
+central_elevator_event = (SWEEP_EVENT());
+central_elevator_sweep = (SWEEP()) -> [central_elevator_marker, duration 0] -> [central_elevator_event, duration 0] -> [central_elevator_marker, duration 2];
+central_elevator_switch -> (DELAY(0.5)) -> central_elevator_sweep;
+(WAIT_FOR_EVENT(central_elevator_event)) -> (elevator1_switch1.EnabledState) -> elevator_loop_door;
+
+elevator1_switch1 -> (PASS(0)) -> (NOT()) -> elevator1_switch2;
+elevator1_switch1 -> (PASS(1)) -> (NOT()) -> elevator1_switch2;
+elevator1_switch2 -> (DELAY(0)) -> (PASS(0)) -> (NOT()) -> elevator1_switch1;
+elevator1_switch2 -> (DELAY(0)) -> (PASS(1)) -> (NOT()) -> elevator1_switch1;
+elevator1_switch1 -> elevator1;
+
+
+# --- WESTERN AND EASTERN BLOCKS UNLOCK ---
+
+door16a_event = (SWEEP_EVENT());
+door16b_event = (SWEEP_EVENT());
+door16_sweep = (SWEEP()) -> [door16a_marker, duration 0] -> [door16a_event, duration 0] -> [door16a_marker, duration 2]
+					  -> [door16b_marker, duration 0] -> [door16b_event, duration 0] -> [door16b_marker, duration 5];
+switch16 -> (DELAY(0.5)) -> door16_sweep;
+(WAIT_FOR_EVENT(door16a_event)) -> door7;
+(WAIT_FOR_EVENT(door16b_event)) -> door2;
+
+
+# --- EASTERN BLOCK ---
+
+drone7b -> (NOT()) -> door2z;
+drone7b -> (NOT()) -> (elevator1_switch2.EnabledState);
+jammer3:Observe(jammer3_observed1);
+jammer3:Observe(jammer3_observed2);
+jammer3:Observe(jammer3_observed3);
+jammer3:Observe((drone7b.Drone));
+jammer3 -> door3;
+jammer3 -> door2z;
+jammer3 -> (elevator1_switch2.EnabledState);
+
+door4_event = (SWEEP_EVENT());
+door4_sweep = (SWEEP()) -> [door4_marker, duration 0] -> [door4_event, duration 0] -> [door4_marker, duration 4];
+switch4 -> (DELAY(0.5)) -> door4_sweep;
+(WAIT_FOR_EVENT(door4_event)) -> door4a;
+(WAIT_FOR_EVENT(door4_event)) -> door15c;
+(WAIT_FOR_EVENT(door4_event)) -> (NOT()) -> door4d;
+(WAIT_FOR_EVENT(door4_event)) -> (NOT()) -> door4e;
+
+drone7a -> (NOT()) -> door4b;
+drone7a -> (NOT()) -> door4c;
+drone7a -> (NOT()) -> door15c;
+drone7a -> (NOT()) -> (switch5.EnabledState);
+jammer5:Observe((drone7a.Drone));
+jammer5:Observe(jammer5_observed1);
+jammer5:Observe(jammer5_observed2);
+jammer5:Observe(jammer5_observed3);
+jammer5 -> door4b;
+jammer5 -> door4c;
+jammer5 -> door15c;
+jammer5 -> door5;
+switch5 -> (DELAY(3)) -> door5;
+switch5 -> (DELAY(3)) -> (NOT()) -> jammer5;
+switch5 -> (NOT()) -> (drone7a.ProximityState);
+switch5 -> (drone7a.LockCircuitNode);
+
+perma_switch_tooltip -> (NOT()) -> perma_on_switch;
+perma_on_switch -> (kg_heli_stay_away_nerd.DetectionState) -> (kg_heli_stay_away_nerd2.DetectionState);
+
+door6_shortcut_event_1 = (SWEEP_EVENT());
+door6_shortcut_event_2 = (SWEEP_EVENT());
+door6_shortcut_sweep = (SWEEP()) -> [door6_marker_2, duration 0] -> [door6_shortcut_event_2, duration 0] -> [door6_marker_2, duration 1] -> [door6_shortcut_event_1, duration 0];
+switch6_shortcut -> (DELAY(1)) -> door6_shortcut_sweep;
+(WAIT_FOR_EVENT(door6_shortcut_event_1)) -> door6_shortcut_1;
+(WAIT_FOR_EVENT(door6_shortcut_event_2)) -> door6_shortcut_2;
+
+switch7_event = (SWEEP_EVENT());
+switch7_event_1 = (SWEEP_EVENT());
+door7_sweep = (SWEEP()) -> [door13_marker, duration 0] -> [switch7_event, duration 0] -> [door13_marker, duration 3];
+switch7 -> (DELAY(1)) -> door7_sweep;
+(WAIT_FOR_EVENT(switch7_event)) -> (DELAY(0.5)) -> door13_lamp2;
+
+
+# --- WESTERN BLOCK ---
+
+jammer8:Observe(jammer8_observed1);
+jammer8:Observe(jammer8_observed2);
+jammer8:Observe(jammer8_observed3);
+jammer8:Observe(jammer8_observed4);
+jammer8:Observe(jammer8_observed5);
+jammer8:Observe(jammer8_observed6);
+jammer8:Observe((drone7c.Drone));
+jammer8 -> (switch8.EnabledState);
+switch8 -> door8;
+switch8 -> door8b;
+drone7c -> door8z;
+drone7c -> (NOT()) -> door8b;
+
+elevator3_s1 -> (PASS(0)) -> (NOT()) -> elevator3_s2;
+elevator3_s1 -> (PASS(1)) -> (NOT()) -> elevator3_s2;
+elevator3_s2 -> (DELAY(0)) -> (PASS(0)) -> (NOT()) -> elevator3_s1;
+elevator3_s2 -> (DELAY(0)) -> (PASS(1)) -> (NOT()) -> elevator3_s1;
+elevator3_s1 -> elevator3;
+
+scout_drones = mt9a -> mt9b;
+sentry_drones = drone9a -> drone9b;
+l9 -> (PASS(0)) -> l9;
+l9 -> door9b -> door9c;
+l9 -> (NOT()) -> door9d -> door9e;
+l9 -> (NOT()) -> drone9a -> drone9b -> mt9a -> mt9b;
+jammer9:Observe((drone9a.Drone));
+jammer9:Observe((drone9b.Drone));
+jammer9:Observe(mt9a);
+jammer9:Observe(mt9b);
+jammer9 -> door9b;
+
+# WATER PUZZLE
+
+puzzle10_jammer0:Observe(puzzle10_observed1);
+puzzle10_jammer0:Observe(puzzle10_observed2);
+puzzle10_jammer0:Observe(puzzle10_observed3);
+puzzle10_jammer0 -> (puzzle10_s0.EnabledState);
+
+puzzle10_event0 = (SWEEP_EVENT());
+puzzle10_sweep0 = (SWEEP()) -> [puzzle10_marker0, duration 0] -> [puzzle10_event0, duration 0] -> [puzzle10_marker0, duration 1.5];
+puzzle10_s0 -> (DELAY(0.5)) -> puzzle10_sweep0;
+(WAIT_FOR_EVENT(puzzle10_event0)) -> (puzzle10_s1.EnabledState);
+(WAIT_FOR_EVENT(puzzle10_event0)) -> (puzzle10_s2.EnabledState);
+(WAIT_FOR_EVENT(puzzle10_event0)) -> (puzzle10_s3.EnabledState);
+
+puzzle10_and_a = (AND());
+puzzle10_s1 -> puzzle10_and_a;
+puzzle10_s2 -> puzzle10_and_a;
+
+puzzle10_and_b = (AND());
+puzzle10_and_a -> puzzle10_and_b;
+puzzle10_s3 -> puzzle10_and_b;
+
+puzzle10_s123_enable = (puzzle10_s1.EnabledState) -> (puzzle10_s2.EnabledState) -> (puzzle10_s3.EnabledState);
+
+puzzle10_and_b -> (PASS(1)) -> puzzle10_w1 -> puzzle10_w2 -> puzzle10_w3 -> (DELAY(1)) -> puzzle10_d1 -> (NOT()) -> puzzle10_s123_enable;
+
+drone7ef_or = (OR());
+drone7e -> drone7ef_or;
+drone7f -> drone7ef_or;
+drone7ef_or -> (NOT()) -> door17a;
+jammer17:Observe((drone7e.Drone));
+jammer17:Observe((drone7f.Drone));
+jammer17 -> door17a;
+jammer17 -> door17b;
+
+door13_event = (SWEEP_EVENT());
+door12c_event = (SWEEP_EVENT());
+door13_sweep = (SWEEP()) -> [door13_marker, duration 0] -> [door13_event, duration 0] -> [door13_marker, duration 3] -> [door12c_event, duration 0];
+switch12 -> (DELAY(1)) -> door13_sweep;
+(WAIT_FOR_EVENT(door13_event)) -> (DELAY(0.5)) -> door13_lamp1;
+(WAIT_FOR_EVENT(door12c_event)) -> (DELAY(1)) -> door12a;
+
+
+# --- NORTHERN BLOCK ---
+
+door13_AND = (AND());
+switch7 -> door13_AND;
+switch12 -> door13_AND;
+
+door13b_event = (SWEEP_EVENT());
+door13b_sweep = (SWEEP()) -> [door13_marker, duration 0] -> [door13b_event, duration 0] -> [door13_marker, duration 6];
+door13_AND -> (DELAY(2.5)) -> door13b_sweep;
+(WAIT_FOR_EVENT(door13b_event)) -> door13 -> (DELAY(7)) -> door12a;
+
+switch14 -> door14;
+
+jammer15:Observe(observed15a);
+jammer15:Observe(observed15b);
+jammer15:Observe(observed15c);
+jammer15:Observe(observed15d);
+jammer15:Observe(observed15e);
+jammer15:Observe(observed15f);
+
+jammer15 -> door15a;
+
+door15_event = (SWEEP_EVENT());
+door15_sweep = (SWEEP()) -> [switch15b_marker, duration 0] -> [door15_event, duration 0] -> [switch15b_marker, duration 2];
+switch15a -> (DELAY(0.5)) -> door15_sweep;
+(WAIT_FOR_EVENT(door15_event)) -> (switch15b.EnabledState);
+
+switch15b -> door15b;
+switch15b -> (NOT()) -> door7;
+switch15b -> (NOT()) -> door5;
+switch15b -> (NOT()) -> door4c;
+switch15b -> (NOT()) -> door4a;
+switch15b -> (NOT()) -> (elevator1_switch2.EnabledState);
+switch15b -> elevator1_switch1;
+
+
+# --- GET TO DA CHOPPA! ---
+
+finale_or = (OR());
+finale_pr1 -> finale_or;
+finale_pr2 -> finale_or;
+
+finale_or -> finale_sc;
+(finale_sc.ProcessingState) -> finale_pr1;
+(finale_sc.ProcessingState) -> finale_pr2;
+finale_sc -> finale_d1 -> finale_d2;
+
+finale_interaction -> (DELAY(0)) -> (NEXT_LEVEL("xmas_final")); 
+
+
+# --------------------------------------
+# -------------- hives -----------------
+# --------------------------------------
+# -             h = hive               -
+# -           t = tentacle             -
+# --------------------------------------
+
+h1 -> h1_t1 -> h1_t2 -> h1_t3 -> h1_t4;
+
+h2 -> h2_t1 -> h2_t2 -> h2_t3 -> h2_t4;
+
+h3 -> h3_t1 -> h3_t2 -> h3_t3 -> h3_t4;
+
+h3_morph:BuildBowels();
+h3_morph:SetMask(h3_morph_mask1);
+h3_morph:SetMask(h3_morph_mask2);
+h3 -> h3_morph;
+
+h4 -> h4_t1 -> h4_t2 -> h4_t3 -> h4_t4;
+h4 -> h4_t1 -> h4_t2 -> h4_t3 -> h4_t4;
+
+
+# --- SHOTGUN RAMPAGE ROOM ---
+
+rampage_jammer -> (DELAY(1)) -> (rampage_killgrid1.DetectionState) ->
+	(rampage_killgrid2.DetectionState) ->
+	(rampage_killgrid3.DetectionState) ->
+	(rampage_killgrid4.DetectionState) ->
+	(rampage_killgrid5.DetectionState) ->
+	(rampage_killgrid6.DetectionState);
+
+rampage_jammer:Observe(rampage_agent);
+
+rampage_door_event = (SWEEP_EVENT());
+rampage_grid_bypass_event = (SWEEP_EVENT());
+rampage_sweep = (SWEEP()) ->
+	[rampage_door_marker, duration 1.5] -> [rampage_door_event, duration 0] -> [rampage_door_marker, duration 3.5] -> 
+	[rampage_jammer_marker, duration 1.5] -> [rampage_grid_bypass_event, duration 1.5] -> [rampage_jammer_marker, duration 1.5] -> 
+	[rampage_jammer_marker, duration 0.5];
+
+(WAIT_FOR_EVENT(rampage_door_event)) -> rampage_door1 -> rampage_door2;
+
+rampage_grid_bypass_wait = (WAIT_FOR_EVENT(rampage_grid_bypass_event));
+rampage_grid_bypass_not = (NOT());
+
+rampage_grid_bypass_wait -> rampage_grid_bypass_not;
+rampage_grid_bypass_not -> rampage_jammer;
+
+rampage_grid_bypass_not -> rampage_killgrid1 -> rampage_killgrid2 ->
+	rampage_killgrid3 -> rampage_killgrid4 -> rampage_killgrid5 ->
+	rampage_killgrid6;
+
+rampage_grid_bypass_wait -> 
+	(DELAY(0.1)) -> rampage_safety_0 ->
+	(DELAY(0.1)) -> rampage_safety_1 ->
+	(DELAY(0.1)) -> rampage_safety_2 ->
+	(DELAY(0.1)) -> rampage_safety_3 ->
+	(DELAY(0.1)) -> rampage_safety_4 ->
+	(DELAY(0.1)) -> rampage_safety_5 ->
+	(DELAY(0.1)) -> rampage_safety_6 ->
+	(DELAY(0.1)) -> rampage_safety_7 ->
+	(DELAY(0.1)) -> rampage_safety_8 ->
+	(DELAY(0.1)) -> rampage_safety_9 ->
+	(DELAY(0.1)) -> rampage_safety_10;
+
+rampage_switch -> (DELAY(1)) -> rampage_sweep;
+rampage_switch -> (DELAY(1)) -> rampage_sweep;

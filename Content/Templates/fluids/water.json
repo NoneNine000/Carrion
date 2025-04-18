@@ -1,0 +1,26 @@
+{
+	"object": {
+		"height": 88,
+		"id": 970,
+		"name": "",
+		"properties": [
+			{
+				"name": "LevelChangeOnReceive",
+				"type": "float",
+				"value": -250
+			},
+			{
+				"name": "LevelChangeSpeed",
+				"type": "float",
+				"value": 20
+			}
+		],
+		"rotation": 0,
+		"type": "water",
+		"visible": true,
+		"width": 800,
+		"x": -414,
+		"y": -336
+	},
+	"type": "template"
+}

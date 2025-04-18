@@ -1,0 +1,26 @@
+{
+	"object": {
+		"height": 80,
+		"id": 1010,
+		"name": "",
+		"properties": [
+			{
+				"name": "Type",
+				"type": "int",
+				"value": 0
+			},
+			{
+				"name": "TypeStr",
+				"type": "string",
+				"value": "fan"
+			}
+		],
+		"rotation": 0,
+		"type": "destructible",
+		"visible": true,
+		"width": 80,
+		"x": 2720,
+		"y": 1792
+	},
+	"type": "template"
+}

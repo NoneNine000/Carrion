@@ -1,0 +1,20 @@
+{ "object":
+    {
+     "height":48,
+     "id":1874,
+     "name":"",
+     "properties":[
+            {
+             "name":"IsReinforced",
+             "type":"bool",
+             "value":false
+            }],
+     "rotation":0,
+     "type":"glass_wall",
+     "visible":true,
+     "width":16,
+     "x":3664,
+     "y":2608
+    },
+ "type":"template"
+}

@@ -1,0 +1,27 @@
+{
+	"object": {
+		"ellipse": true,
+		"height": 52,
+		"id": 1114,
+		"name": "",
+		"properties": [
+			{
+				"name": "LabelOffsetX",
+				"type": "float",
+				"value": -1
+			},
+			{
+				"name": "LabelOffsetY",
+				"type": "float",
+				"value": 0
+			}
+		],
+		"rotation": 0,
+		"type": "upgrade_container",
+		"visible": true,
+		"width": 40,
+		"x": 448.25,
+		"y": 251.916666666667
+	},
+	"type": "template"
+}

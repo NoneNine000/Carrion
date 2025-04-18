@@ -1,0 +1,12 @@
+{ "object":
+    {
+     "height":28,
+     "id":2245,
+     "name":"",
+     "rotation":0,
+     "type":"dot_matrix_display",
+     "visible":true,
+     "width":260
+    },
+ "type":"template"
+}

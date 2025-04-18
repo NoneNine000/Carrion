@@ -1,0 +1,88 @@
+floodgate1_switch -> floodgate1;
+
+floodgate1_sweep = (SWEEP()) -> [floodgate1_marker, duration 0] -> [floodgate1_marker, duration 3];
+floodgate1_switch -> floodgate1_sweep;
+
+cobweb_door_switch -> (NOT()) -> cobweb_door;
+
+goo_door_switch -> goo_door;
+
+floodgate2_switch -> floodgate2b -> (NOT()) -> floodgate2a;
+
+#floodgate3_switch -> floodgate3;
+
+mech_sweep = (SWEEP()) -> [mech_marker, duration 0] -> [mech_marker, duration 3];
+mech_tooltip -> (NOT()) -> mech_sweep;
+
+jammer_rec1:Observe(jammer1_holder);
+jammer_rec1 -> jammed_door1 -> jammed_door1b -> jammed_door1c;
+
+#morphing checkpoint
+
+morph:SetMask(mask1);
+morph:SetMask(mask2);
+morph:BuildBowels();
+
+morph_checkpoint -> morph;
+
+#morphing checkpoint2
+
+morph2:SetMask(mask3);
+morph2:SetMask(mask4);
+morph2:BuildBowels();
+
+hive3 -> morph2;
+
+#backtracking
+
+cobweb2_door_switch -> (NOT()) -> cobweb2_door1 -> (NOT()) -> cobweb2_door2;
+
+
+
+
+water_sweep = (SWEEP()) -> [water_marker2, duration 0] -> [water_marker2, duration 3];
+
+water_switch1 -> (DELAY(6)) -> (water_switch2.EnabledState);
+water_switch1 -> (water_switch1.EnabledState);
+water_switch2 -> (DELAY(0)) -> (PASS(0)) -> (NOT()) -> water_switch1;
+water_switch2 -> (DELAY(0)) -> (PASS(1)) -> (NOT()) -> water_switch1;
+#water_switch1 -> (PASS(0)) -> (NOT()) -> water_switch2;
+#water_switch1 -> (PASS(1)) -> (NOT()) -> water_switch2;
+
+water_switch1 -> water -> (DELAY(2)) -> (NOT()) -> water_floodgate1;
+water_switch2 -> water_sweep;
+
+water_floodgate2_switch -> (NOT()) -> water_floodgate2 -> (water_switch1.EnabledState);
+
+#jammers
+
+jammer_rec2 -> jammed_door2 -> bridge_door -> bridge_display;
+
+jammer_rec2:Observe(jammer2_holder);
+jammer_rec2:Observe(jammer3_holder);
+
+
+jammer_rec3 -> jammed_door3;
+
+jammer_rec3:Observe((jammer4_holder.Drone));
+
+#OPTIONAL BACKTRACKING
+
+backtracking_floodgate_switch -> backtracking_floodgate1 -> (NOT()) -> backtracking_floodgate2;
+
+secret_jar -> secret_lamp0;
+secret_jar -> secret_lamp1;
+
+#tentacles
+hive1 -> tentacle1a -> tentacle1b -> tentacle1c;
+morph_checkpoint -> tentacle2a -> tentacle2b -> tentacle2c;
+hive3 -> tentacle3a -> tentacle3b -> tentacle3c;
+hive4 -> tentacle4a -> tentacle4b -> tentacle4c;
+
+
+#SCREENS
+
+pc1 -> screen1;
+
+#BACKTRACKING ASSISTANCE
+jammer_rec1 -> (NOT()) -> backtracking_lockdown_door1 -> backtracking_lockdown_door2;

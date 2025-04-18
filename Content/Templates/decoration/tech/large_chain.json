@@ -1,0 +1,50 @@
+{
+	"object": {
+		"height": 0,
+		"id": 727,
+		"name": "",
+		"polyline": [
+			{
+				"x": 0,
+				"y": 0
+			},
+			{
+				"x": 24,
+				"y": 96
+			},
+			{
+				"x": 40,
+				"y": 0
+			}
+		],
+		"properties": [
+			{
+				"name": "FixB",
+				"type": "bool",
+				"value": true
+			},
+			{
+				"name": "Sprite",
+				"type": "string",
+				"value": "Objects/large_chain"
+			},
+			{
+				"name": "MassMultiplier",
+				"type": "float",
+				"value": 4
+			},
+			{
+				"name": "WindMultiplier",
+				"type": "float",
+				"value": 0.2
+			}
+		],
+		"rotation": 0,
+		"type": "verlet",
+		"visible": true,
+		"width": 0,
+		"x": 732,
+		"y": 1584
+	},
+	"type": "template"
+}

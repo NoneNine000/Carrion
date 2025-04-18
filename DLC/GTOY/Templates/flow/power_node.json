@@ -1,0 +1,14 @@
+{
+	"object": {
+		"height": 76,
+		"id": 366,
+		"name": "",
+		"rotation": 0,
+		"type": "power_node",
+		"visible": true,
+		"width": 62,
+		"x": 660,
+		"y": 620
+	},
+	"type": "template"
+}

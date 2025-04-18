@@ -1,0 +1,20 @@
+{ "object":
+    {
+     "height":32,
+     "id":3540,
+     "name":"",
+     "properties":[
+            {
+             "name":"InitState",
+             "type":"bool",
+             "value":true
+            }],
+     "rotation":-270,
+     "type":"turbine",
+     "visible":true,
+     "width":96,
+     "x":1904,
+     "y":2128
+    },
+ "type":"template"
+}

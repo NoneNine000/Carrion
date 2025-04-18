@@ -1,0 +1,160 @@
+water_switch -> water1 -> water2;
+
+water_sweep = (SWEEP()) -> [water_marker1, duration 0] -> [water_marker1, duration 0.25] -> [water_marker2, duration 0] -> [water_marker2, duration 2.5];
+water_switch -> water_sweep;
+water_switch -> (NOT()) -> water_sweep;
+
+turret_switch -> door1 -> (NOT()) -> turret;
+
+left_door_event = (SWEEP_EVENT());
+right_door_event = (SWEEP_EVENT());
+left_door_sweep = (SWEEP()) -> [left_door_marker, duration 0] -> [left_door_event, duration 0] -> [left_door_marker, duration 1] -> [right_door_event, duration 0] -> [right_door_marker, duration 0] -> [right_door_marker, duration 2.5];
+right_left_door_switch -> (DELAY(1)) -> left_door_sweep;
+(WAIT_FOR_EVENT(left_door_event)) -> left_door;
+(WAIT_FOR_EVENT(right_door_event)) -> right_door;
+
+
+laser_event = (SWEEP_EVENT());
+laser_sweep = (SWEEP()) -> [laser_marker, duration 0] -> [laser_event, duration 0] -> [laser_marker, duration 2];
+laser_switch -> (DELAY(1)) -> laser_sweep;
+laser1a -> laser1b -> laser1c -> laser_door1a;
+(WAIT_FOR_EVENT(laser_event)) -> (PASS(1)) -> (DELAY(1)) -> laser1a;
+
+laser_switch -> (PASS(0)) -> laser1a;
+laser1a -> (PASS(0)) -> (NOT()) -> (laser_switch.EnabledState);
+laser1a -> (PASS(0)) -> (NOT()) -> (laser_switch.EnabledState);
+laser1b -> (PASS(0)) -> (NOT()) -> (laser_switch.EnabledState);
+laser1b -> (PASS(0)) -> laser_switch;
+laser1c -> (PASS(0)) -> laser_switch;
+laser1c -> (PASS(0)) -> laser_switch;
+
+laser_off_switch -> laser1a;
+laser_off_switch -> (NOT()) -> (DELAY(0.05)) -> laser_door1a -> (NOT()) -> (laser_switch.EnabledState);
+
+
+vent_door_switch -> vent_door;
+
+#combo doors
+
+combo_door_sweep = (SWEEP()) -> [combo_door_marker, duration 0] -> [combo_door_marker, duration 1];
+
+combo_door_switch1 -> (PASS(0)) -> (NOT()) -> combo_door_switch2;
+combo_door_switch1 -> (PASS(1)) -> (NOT()) -> combo_door_switch2;
+combo_door_switch2 -> (DELAY(0)) -> (PASS(0)) -> (NOT()) -> combo_door_switch1;
+combo_door_switch2 -> (DELAY(0)) -> (PASS(1)) -> (NOT()) -> combo_door_switch1;
+
+combo_door_switch1 -> combo_door1 -> (NOT()) -> combo_door2;
+combo_door_switch1 -> (DELAY(0.15)) -> combo_door_sweep;
+combo_door_switch2 -> (DELAY(0.15)) -> combo_door_sweep;
+
+(combo_door1.OperatingState) -> (NOT()) -> (combo_door_switch1.EnabledState);
+(combo_door2.OperatingState) -> (NOT()) -> (combo_door_switch2.EnabledState);
+
+
+#combo floodgates
+
+combo_floodgate_sweep = (SWEEP()) -> [combo_floodgate_marker, duration 0] -> [combo_floodgate_marker, duration 4];
+
+combo_floodgate_switch1 -> (PASS(0)) -> (NOT()) -> combo_floodgate_switch2;
+combo_floodgate_switch1 -> (PASS(1)) -> (NOT()) -> combo_floodgate_switch2;
+combo_floodgate_switch2 -> (DELAY(0)) -> (PASS(0)) -> (NOT()) -> combo_floodgate_switch1;
+combo_floodgate_switch2 -> (DELAY(0)) -> (PASS(1)) -> (NOT()) -> combo_floodgate_switch1;
+
+combo_floodgate_switch1 -> (DELAY(0.15)) -> combo_floodgate_sweep;
+combo_floodgate_switch2 -> (DELAY(0.15)) -> combo_floodgate_sweep;
+
+combo_floodgate_switch1 -> combo_floodgate2a -> combo_floodgate2b -> redlight2a -> redlight2b -> redlight2c -> redlight2d -> (NOT()) -> combo_floodgate1a -> combo_floodgate1b -> redlight1a -> redlight1b -> redlight1c -> redlight1d;
+
+(combo_floodgate1a.OperatingState) -> (NOT()) -> (combo_floodgate_switch1.EnabledState);
+(combo_floodgate2a.OperatingState) -> (NOT()) -> (combo_floodgate_switch2.EnabledState);
+
+#morphing checkpoint
+
+morph:SetMask(mask1);
+morph:SetMask(mask2);
+morph:BuildBowels();
+
+morph_checkpoint -> tentacle1 -> tentacle2 -> tentacle3 -> morph;
+
+#jar_door_switch1 -> jar_door1;
+#jar_door_event = (SWEEP_EVENT());
+#jar_door_sweep = (SWEEP()) -> [jar_door_marker, duration 0] -> [jar_door_event, duration 0] -> [jar_door_marker, duration 2];
+#jar_door_switch2 -> (DELAY(0.5)) -> jar_door_sweep -> (DELAY(4)) -> jar_door2;
+#(WAIT_FOR_EVENT(jar_door_event)) -> (PASS(1)) -> (NOT()) -> jar_door_switch1;
+#jar_door_switch3 -> jar_door3;
+
+jar_door_switch1 -> jar_door1;
+jar_door_switch2 -> (DELAY(0.5)) -> jar_door2 -> (NOT()) -> jar_door_switch1;
+jar_door_switch3 -> jar_door3;
+
+
+
+guard_floodgate1_switch -> guard_floodgate1 -> bs_door1;
+guard_floodgate2_switch -> guard_floodgate2 -> bs_door2;
+
+bs_door_switch -> bs_door3 -> bs_door4;
+
+floodgate1_event = (SWEEP_EVENT());
+mech_door1_event = (SWEEP_EVENT());
+floodgate1_sweep = (SWEEP()) -> [floodgate_marker, duration 0] -> [floodgate1_event, duration 0] -> [floodgate_marker, duration 6];
+mech_door1_sweep = (SWEEP()) -> [left_door_marker, duration 0] -> [mech_door1_event, duration 0] -> [left_door_marker, duration 4];
+floodgate1_switch -> (DELAY(1)) -> floodgate1_sweep -> (DELAY(6)) -> mech_door1_sweep;
+(WAIT_FOR_EVENT(floodgate1_event)) -> floodgate1;
+(WAIT_FOR_EVENT(mech_door1_event)) -> mech_door1;
+
+floodgate2_event = (SWEEP_EVENT());
+mech_door2_event = (SWEEP_EVENT());
+floodgate2_sweep = (SWEEP()) -> [floodgate_marker, duration 0] -> [floodgate2_event, duration 0] -> [floodgate_marker, duration 6];
+mech_door2_sweep = (SWEEP()) -> [right_door_marker, duration 0] -> [mech_door2_event, duration 0] -> [right_door_marker, duration 4];
+floodgate2_switch -> (DELAY(1)) -> floodgate2_sweep -> (DELAY(6)) -> mech_door2_sweep;
+(WAIT_FOR_EVENT(floodgate2_event)) -> floodgate2;
+(WAIT_FOR_EVENT(mech_door2_event)) -> mech_door2;
+
+#jammers
+
+jammer_rec1 -> drone_door -> drone_door2;
+jammer1_holder -> jammer2_holder -> (NOT()) -> drone_door2;
+
+jammer_rec1:Observe((jammer1_holder.Drone));
+jammer_rec1:Observe((jammer2_holder.Drone));
+
+#OPTIONAL BACKTRACKING
+
+b_laser_switch -> b_laser_door1 -> b_laser1;
+b_laser1 -> (PASS(0)) -> (NOT()) -> (laser_switch.EnabledState);
+b_laser1 -> (PASS(0)) -> b_laser_switch;
+
+b_floodgate1_switch -> b_floodgate1 -> (NOT()) -> b_floodgate2;
+
+seq_sum = (SUM());
+seq_control = (SEQUENCER(30, 2, 0, 1, 0, 0));
+seq1 = (SEQUENCER(10, 3, 1, 2, 3, 0));
+seq2 = (SEQUENCER(10, 3, 4, 5, 6, 0));
+
+seq_and1 = (AND());
+seq_and2 = (AND());
+
+seq_control -> (NOT()) -> seq_and1;
+seq1 -> seq_and1;
+
+seq_control -> seq_and2;
+seq2 -> seq_and2;
+
+seq_and1 -> seq_sum;
+seq_and2 -> seq_sum;
+
+seq_sum -> (WINDOW_TEST(0.9, 1.1)) -> (SMOOTH(0, 0.3, 0.1)) -> tower_light_1;
+seq_sum -> (WINDOW_TEST(1.9, 2.1)) -> (SMOOTH(0, 0.3, 0.1)) -> tower_light_2;
+seq_sum -> (WINDOW_TEST(2.9, 3.1)) -> (SMOOTH(0, 0.3, 0.1)) -> tower_light_3;
+seq_sum -> (WINDOW_TEST(3.9, 4.1)) -> (SMOOTH(0, 0.3, 0.1)) -> tower_light_4;
+seq_sum -> (WINDOW_TEST(4.9, 5.1)) -> (SMOOTH(0, 0.3, 0.1)) -> tower_light_5;
+seq_sum -> (WINDOW_TEST(5.9, 6.1)) -> (SMOOTH(0, 0.3, 0.1)) -> tower_light_6;
+
+secret_jar -> secret_lamp0;
+secret_jar -> secret_lamp1;
+
+#tentacles
+
+hive1 -> hive1_tentacle1 -> hive1_tentacle2 -> hive1_tentacle3;
+hive2 -> hive2_tentacle1 -> hive2_tentacle2 -> hive2_tentacle3 -> hive2_tentacle4;
+hive3 -> hive3_tentacle1 -> hive3_tentacle2 -> hive3_tentacle3;

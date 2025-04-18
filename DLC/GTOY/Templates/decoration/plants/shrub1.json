@@ -1,0 +1,31 @@
+{
+	"object": {
+		"height": 0,
+		"id": 1753,
+		"name": "",
+		"polyline": [
+			{
+				"x": 0,
+				"y": 0
+			},
+			{
+				"x": 36,
+				"y": -80
+			}
+		],
+		"properties": [
+			{
+				"name": "Seed",
+				"type": "int",
+				"value": 77888
+			}
+		],
+		"rotation": 0,
+		"type": "verlet_plant",
+		"visible": true,
+		"width": 0,
+		"x": 2336,
+		"y": 352
+	},
+	"type": "template"
+}

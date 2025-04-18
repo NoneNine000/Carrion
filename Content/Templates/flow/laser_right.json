@@ -1,0 +1,55 @@
+{
+	"object": {
+		"height": 0,
+		"id": 1455,
+		"name": "",
+		"polygon": [
+			{
+				"x": 0,
+				"y": 0
+			},
+			{
+				"x": -16,
+				"y": 0
+			},
+			{
+				"x": -16,
+				"y": 16
+			},
+			{
+				"x": 0,
+				"y": 16
+			},
+			{
+				"x": 0,
+				"y": 112
+			},
+			{
+				"x": 0,
+				"y": 16
+			},
+			{
+				"x": 16,
+				"y": 16
+			},
+			{
+				"x": 16,
+				"y": 0
+			}
+		],
+		"properties": [
+			{
+				"name": "Direction",
+				"type": "int",
+				"value": 2
+			}
+		],
+		"rotation": -450,
+		"type": "laser_beam",
+		"visible": true,
+		"width": 0,
+		"x": 3920,
+		"y": 1280
+	},
+	"type": "template"
+}

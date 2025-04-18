@@ -1,0 +1,14 @@
+{
+	"object": {
+		"height": 52,
+		"id": 481,
+		"name": "",
+		"rotation": 0,
+		"type": "switch",
+		"visible": true,
+		"width": 32,
+		"x": 784,
+		"y": 620
+	},
+	"type": "template"
+}

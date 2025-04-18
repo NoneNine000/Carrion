@@ -1,0 +1,40 @@
+{
+	"object": {
+		"height": 0,
+		"id": 280,
+		"name": "",
+		"polygon": [
+			{
+				"x": 0,
+				"y": 0
+			},
+			{
+				"x": 8,
+				"y": -32
+			},
+			{
+				"x": -8,
+				"y": -32
+			}
+		],
+		"properties": [
+			{
+				"name": "CanDropWeapon",
+				"type": "bool",
+				"value": true
+			},
+			{
+				"name": "Weapon",
+				"type": "string",
+				"value": "pistol"
+			}
+		],
+		"rotation": 0,
+		"type": "human",
+		"visible": true,
+		"width": 0,
+		"x": 548,
+		"y": 376
+	},
+	"type": "template"
+}

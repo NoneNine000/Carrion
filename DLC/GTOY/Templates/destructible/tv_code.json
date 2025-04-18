@@ -1,0 +1,25 @@
+{ "object":
+    {
+     "height":30,
+     "id":696,
+     "name":"",
+     "properties":[
+            {
+             "name":"TypeStr",
+             "type":"string",
+             "value":"TV_CODE"
+            }, 
+            {
+             "name":"Variant",
+             "type":"int",
+             "value":1
+            }],
+     "rotation":0,
+     "type":"destructible",
+     "visible":true,
+     "width":41,
+     "x":-20.5,
+     "y":-15
+    },
+ "type":"template"
+}

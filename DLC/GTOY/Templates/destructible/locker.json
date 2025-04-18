@@ -1,0 +1,25 @@
+{ "object":
+    {
+     "height":48,
+     "id":2365,
+     "name":"",
+     "properties":[
+            {
+             "name":"TypeStr",
+             "type":"string",
+             "value":"locker"
+            }, 
+            {
+             "name":"Variant",
+             "type":"int",
+             "value":0
+            }],
+     "rotation":0,
+     "type":"destructible",
+     "visible":true,
+     "width":14,
+     "x":4656,
+     "y":1376
+    },
+ "type":"template"
+}

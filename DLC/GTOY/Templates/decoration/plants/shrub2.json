@@ -1,0 +1,41 @@
+{
+	"object": {
+		"height": 0,
+		"id": 1051,
+		"name": "",
+		"polyline": [
+			{
+				"x": 0,
+				"y": 0
+			},
+			{
+				"x": -61.5,
+				"y": -156
+			}
+		],
+		"properties": [
+			{
+				"name": "LeafSprite",
+				"type": "string",
+				"value": "Objects/branches_green"
+			},
+			{
+				"name": "Seed",
+				"type": "int",
+				"value": 3245
+			},
+			{
+				"name": "Sprite",
+				"type": "string",
+				"value": "Objects/stalk_large"
+			}
+		],
+		"rotation": 0,
+		"type": "verlet_plant",
+		"visible": true,
+		"width": 0,
+		"x": 550,
+		"y": 545
+	},
+	"type": "template"
+}

@@ -1,0 +1,28 @@
+{
+	"object": {
+		"height": 0,
+		"id": 281,
+		"name": "",
+		"polygon": [
+			{
+				"x": 0,
+				"y": 0
+			},
+			{
+				"x": 8,
+				"y": -20
+			},
+			{
+				"x": -8,
+				"y": -20
+			}
+		],
+		"rotation": 0,
+		"type": "human",
+		"visible": true,
+		"width": 0,
+		"x": 696,
+		"y": 384
+	},
+	"type": "template"
+}

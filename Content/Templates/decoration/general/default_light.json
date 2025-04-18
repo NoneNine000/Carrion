@@ -1,0 +1,37 @@
+{
+	"object": {
+		"ellipse": true,
+		"height": 16,
+		"id": 499,
+		"name": "",
+		"properties": [
+			{
+				"name": "Bleeding",
+				"type": "float",
+				"value": 32
+			},
+			{
+				"name": "Color",
+				"type": "color",
+				"value": "#ff36554b"
+			},
+			{
+				"name": "Intensity",
+				"type": "float",
+				"value": 1
+			},
+			{
+				"name": "Radius",
+				"type": "float",
+				"value": 110
+			}
+		],
+		"rotation": 0,
+		"type": "light",
+		"visible": true,
+		"width": 16,
+		"x": 2192,
+		"y": 2056
+	},
+	"type": "template"
+}

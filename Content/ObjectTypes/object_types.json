@@ -1,0 +1,1760 @@
+[
+    {
+        "color": "#ff4a00a4",
+        "name": "ambient_sound",
+        "properties": [
+            {
+                "name": "Depth",
+                "type": "float",
+                "value": 0
+            },
+            {
+                "name": "MaxDistanceScale",
+                "type": "float",
+                "value": 1
+            },
+            {
+                "name": "MinDistanceRatio",
+                "type": "float",
+                "value": 0.2
+            },
+            {
+                "name": "Occlusion",
+                "type": "float",
+                "value": 0
+            },
+            {
+                "name": "SoundPath",
+                "type": "string",
+                "value": ""
+            },
+            {
+                "name": "TimelineMilliseconds",
+                "type": "int",
+                "value": 0
+            },
+            {
+                "name": "Volume",
+                "type": "float",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "color": "#ffb1a092",
+        "name": "block_door",
+        "properties": [
+            {
+                "name": "InitState",
+                "type": "bool",
+                "value": false
+            }
+        ]
+    },
+    {
+        "color": "#ffffffff",
+        "name": "c4",
+        "properties": [
+            {
+                "name": "InitTriggered",
+                "type": "bool",
+                "value": false
+            }
+        ]
+    },
+    {
+        "color": "#ff000000",
+        "name": "chamber",
+        "properties": [
+            {
+                "name": "AmbientColor",
+                "type": "color",
+                "value": ""
+            },
+            {
+                "name": "AreaIsDisplayed",
+                "type": "bool",
+                "value": true
+            },
+            {
+                "name": "AreaName",
+                "type": "string",
+                "value": ""
+            },
+            {
+                "name": "AreaParam",
+                "type": "string",
+                "value": ""
+            },
+            {
+                "name": "BgGenHue",
+                "type": "float",
+                "value": 0
+            },
+            {
+                "name": "BgGenSaturation",
+                "type": "float",
+                "value": 0
+            },
+            {
+                "name": "BgGenValue",
+                "type": "float",
+                "value": 0
+            },
+            {
+                "name": "BgNoiseBiasX",
+                "type": "float",
+                "value": 1.2
+            },
+            {
+                "name": "BgNoiseBiasY",
+                "type": "float",
+                "value": 0.6
+            },
+            {
+                "name": "BgNoiseBiasZ",
+                "type": "float",
+                "value": 0.2
+            },
+            {
+                "name": "BgNoiseScaleX",
+                "type": "float",
+                "value": 0.01
+            },
+            {
+                "name": "BgNoiseScaleY",
+                "type": "float",
+                "value": 0.04
+            },
+            {
+                "name": "BgNoiseScaleZ",
+                "type": "float",
+                "value": 0.3
+            },
+            {
+                "name": "BgSeed",
+                "type": "int",
+                "value": 0
+            },
+            {
+                "name": "BgStirTextures",
+                "type": "bool",
+                "value": true
+            },
+            {
+                "name": "BgTexture",
+                "type": "string",
+                "value": "Whitebox"
+            },
+            {
+                "name": "CopyMusicFromPrevious",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "FgGenHue",
+                "type": "float",
+                "value": 0
+            },
+            {
+                "name": "FgGenSaturation",
+                "type": "float",
+                "value": 0
+            },
+            {
+                "name": "FgGenValue",
+                "type": "float",
+                "value": 0
+            },
+            {
+                "name": "FgNoiseBiasX",
+                "type": "float",
+                "value": 1.2
+            },
+            {
+                "name": "FgNoiseBiasY",
+                "type": "float",
+                "value": 0.6
+            },
+            {
+                "name": "FgNoiseBiasZ",
+                "type": "float",
+                "value": 0.2
+            },
+            {
+                "name": "FgNoiseScaleX",
+                "type": "float",
+                "value": 0.01
+            },
+            {
+                "name": "FgNoiseScaleY",
+                "type": "float",
+                "value": 0.04
+            },
+            {
+                "name": "FgNoiseScaleZ",
+                "type": "float",
+                "value": 0.3
+            },
+            {
+                "name": "FgSeed",
+                "type": "int",
+                "value": 0
+            },
+            {
+                "name": "FgStirTextures",
+                "type": "bool",
+                "value": true
+            },
+            {
+                "name": "FgTexture",
+                "type": "string",
+                "value": "Whitebox"
+            },
+            {
+                "name": "IsSubChamber",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "MarginD",
+                "type": "float",
+                "value": 140
+            },
+            {
+                "name": "MarginL",
+                "type": "float",
+                "value": 140
+            },
+            {
+                "name": "MarginR",
+                "type": "float",
+                "value": 140
+            },
+            {
+                "name": "MarginU",
+                "type": "float",
+                "value": 140
+            },
+            {
+                "name": "Music",
+                "type": "string",
+                "value": ""
+            },
+            {
+                "name": "MusicAction",
+                "type": "string",
+                "value": ""
+            },
+            {
+                "name": "OverrideBgGenerator",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "OverrideFgGenerator",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "SkyColor",
+                "type": "color",
+                "value": ""
+            },
+            {
+                "name": "SubChamberFadeDistance",
+                "type": "float",
+                "value": 0
+            },
+            {
+                "name": "WindX",
+                "type": "float",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "color": "#ff8f856c",
+        "name": "chamber_decal",
+        "properties": [
+            {
+                "name": "AutoSize",
+                "type": "bool",
+                "value": true
+            },
+            {
+                "name": "Color",
+                "type": "color",
+                "value": "#ff3f1e1e"
+            },
+            {
+                "name": "Sprite",
+                "type": "string",
+                "value": ""
+            }
+        ]
+    },
+    {
+        "color": "#ffc1a69f",
+        "name": "cocoon",
+        "properties": [
+        ]
+    },
+    {
+        "color": "#ff172f22",
+        "name": "destructible",
+        "properties": [
+            {
+                "name": "DestroyedVariant",
+                "type": "int",
+                "value": 0
+            },
+            {
+                "name": "IsOn",
+                "type": "bool",
+                "value": true
+            },
+            {
+                "name": "Type",
+                "type": "int",
+                "value": 0
+            },
+            {
+                "name": "TypeStr",
+                "type": "string",
+                "value": ""
+            },
+            {
+                "name": "Variant",
+                "type": "int",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "color": "#ff92b58d",
+        "name": "door",
+        "properties": [
+            {
+                "name": "ClosingSpeedScaler",
+                "type": "float",
+                "value": 1
+            },
+            {
+                "name": "IsOpened",
+                "type": "bool",
+                "value": true
+            },
+            {
+                "name": "Mode",
+                "type": "int",
+                "value": 0
+            },
+            {
+                "name": "OpeningSpeedScaler",
+                "type": "float",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "color": "#ffffff00",
+        "name": "dot_matrix_display",
+        "properties": [
+            {
+                "name": "Message",
+                "type": "string",
+                "value": "empty"
+            }
+        ]
+    },
+    {
+        "color": "#ffba41be",
+        "name": "elevator",
+        "properties": [
+            {
+                "name": "DefaultFloor",
+                "type": "int",
+                "value": 0
+            },
+            {
+                "name": "ElevatorConfig",
+                "type": "string",
+                "value": "FULLY_OPEN"
+            },
+            {
+                "name": "Floor0",
+                "type": "string",
+                "value": ""
+            },
+            {
+                "name": "Floor1",
+                "type": "string",
+                "value": ""
+            }
+        ]
+    },
+    {
+        "color": "#ffa4872f",
+        "name": "eternal_fog",
+        "properties": [
+            {
+                "name": "Color",
+                "type": "color",
+                "value": "#ffffffff"
+            },
+            {
+                "name": "OffsetX",
+                "type": "float",
+                "value": 0
+            },
+            {
+                "name": "OffsetY",
+                "type": "float",
+                "value": 0
+            },
+            {
+                "name": "ScaleX",
+                "type": "float",
+                "value": 1
+            },
+            {
+                "name": "ScaleY",
+                "type": "float",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "color": "#ff68d800",
+        "name": "exit_sign",
+        "properties": [
+            {
+                "name": "GoalID",
+                "type": "int",
+                "value": 0
+            },
+            {
+                "name": "Type",
+                "type": "string",
+                "value": "LEFT"
+            }
+        ]
+    },
+    {
+        "color": "#ff554fff",
+        "name": "floodgate",
+        "properties": [
+            {
+                "name": "Mode",
+                "type": "int",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "color": "#ffb5ddff",
+        "name": "fog",
+        "properties": [
+            {
+                "name": "Color",
+                "type": "color",
+                "value": "#ff191919"
+            },
+            {
+                "name": "OffsetX",
+                "type": "float",
+                "value": 0
+            },
+            {
+                "name": "OffsetY",
+                "type": "float",
+                "value": 0
+            },
+            {
+                "name": "SpeedDirectionX",
+                "type": "int",
+                "value": 0
+            },
+            {
+                "name": "SpeedDirectionY",
+                "type": "int",
+                "value": 1
+            },
+            {
+                "name": "SpeedPowerX",
+                "type": "int",
+                "value": 0
+            },
+            {
+                "name": "SpeedPowerY",
+                "type": "int",
+                "value": 5
+            },
+            {
+                "name": "Type",
+                "type": "string",
+                "value": "layers"
+            }
+        ]
+    },
+    {
+        "color": "#ff9e8da4",
+        "name": "generic_interaction",
+        "properties": [
+            {
+                "name": "ActivationSound",
+                "type": "string",
+                "value": ""
+            },
+            {
+                "name": "Angle",
+                "type": "int",
+                "value": 0
+            },
+            {
+                "name": "AnimationType",
+                "type": "string",
+                "value": "open"
+            },
+            {
+                "name": "DescriptionAfterInteraction",
+                "type": "string",
+                "value": ""
+            },
+            {
+                "name": "FrameDuration",
+                "type": "int",
+                "value": 1
+            },
+            {
+                "name": "InitEnabled",
+                "type": "bool",
+                "value": true
+            },
+            {
+                "name": "InitState",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "Interaction",
+                "type": "string",
+                "value": "interaction_unspecified"
+            },
+            {
+                "name": "IsForeground",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "Radius",
+                "type": "float",
+                "value": 16
+            },
+            {
+                "name": "ScaleX",
+                "type": "float",
+                "value": 1
+            },
+            {
+                "name": "ScaleY",
+                "type": "float",
+                "value": 1
+            },
+            {
+                "name": "SpriteAfterActivation",
+                "type": "string",
+                "value": ""
+            },
+            {
+                "name": "SpriteBeforeActivation",
+                "type": "string",
+                "value": ""
+            }
+        ]
+    },
+    {
+        "color": "#ffa2d7ff",
+        "name": "glass_wall",
+        "properties": [
+            {
+                "name": "IsReinforced",
+                "type": "bool",
+                "value": false
+            }
+        ]
+    },
+    {
+        "color": "#ffff0000",
+        "name": "goal",
+        "properties": [
+            {
+                "name": "EntrancePreference",
+                "type": "int",
+                "value": 0
+            },
+            {
+                "name": "NextLevel",
+                "type": "string",
+                "value": ""
+            }
+        ]
+    },
+    {
+        "color": "#ff750001",
+        "name": "growing_tentacle",
+        "properties": [
+            {
+                "name": "ColorScaler",
+                "type": "float",
+                "value": 1
+            },
+            {
+                "name": "InitState",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "IsForeground",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "Radius",
+                "type": "float",
+                "value": 16
+            }
+        ]
+    },
+    {
+        "color": "#ffffaaff",
+        "name": "hive_place",
+        "properties": [
+            {
+                "name": "EntrancePreference",
+                "type": "int",
+                "value": 0
+            },
+            {
+                "name": "IsAutoFirstTimeCheckpoint",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "IsEntry",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "IsOverworldEntry",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "IsOverworldGoal",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "Level",
+                "type": "string",
+                "value": ""
+            },
+            {
+                "name": "TargetLevelGoals",
+                "type": "int",
+                "value": 1
+            },
+            {
+                "name": "UnlockedGoalID",
+                "type": "int",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "color": "#ffffc566",
+        "name": "human",
+        "properties": [
+            {
+                "name": "Color",
+                "type": "float",
+                "value": -1
+            },
+            {
+                "name": "FacingDirection",
+                "type": "int",
+                "value": 0
+            },
+            {
+                "name": "HasAntenna",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "IsHazmat",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "IsParka",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "IsScientist",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "Model",
+                "type": "int",
+                "value": -1
+            },
+            {
+                "name": "PropAction",
+                "type": "string",
+                "value": ""
+            },
+            {
+                "name": "Weapon",
+                "type": "string",
+                "value": ""
+            }
+        ]
+    },
+    {
+        "color": "#ffffc566",
+        "name": "human_corpse",
+        "properties": [
+            {
+                "name": "Color",
+                "type": "float",
+                "value": -1
+            },
+            {
+                "name": "FacingDirection",
+                "type": "int",
+                "value": 0
+            },
+            {
+                "name": "HasAntenna",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "IsHazmat",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "IsScientist",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "IsStillAlive",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "Model",
+                "type": "int",
+                "value": -1
+            },
+            {
+                "name": "PropAction",
+                "type": "string",
+                "value": ""
+            },
+            {
+                "name": "Weapon",
+                "type": "string",
+                "value": ""
+            }
+        ]
+    },
+    {
+        "color": "#ff82fdff",
+        "name": "instakill_grid",
+        "properties": [
+            {
+                "name": "IsOn",
+                "type": "bool",
+                "value": true
+            }
+        ]
+    },
+    {
+        "color": "#ff8b84a4",
+        "name": "jammer",
+        "properties": [
+            {
+                "name": "Mode",
+                "type": "int",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "color": "#ff8b84a4",
+        "name": "jammer_receiver",
+        "properties": [
+            {
+                "name": "InitEnabled",
+                "type": "bool",
+                "value": true
+            },
+            {
+                "name": "Mode",
+                "type": "int",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "color": "#fff9f9ff",
+        "name": "lamp",
+        "properties": [
+            {
+                "name": "Bleeding",
+                "type": "float",
+                "value": 32
+            },
+            {
+                "name": "Color",
+                "type": "color",
+                "value": "#ff909090"
+            },
+            {
+                "name": "Flickering",
+                "type": "float",
+                "value": 0
+            },
+            {
+                "name": "Hanging",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "InitState",
+                "type": "float",
+                "value": 1
+            },
+            {
+                "name": "Intensity",
+                "type": "float",
+                "value": 1
+            },
+            {
+                "name": "IsCastingShadows",
+                "type": "bool",
+                "value": true
+            },
+            {
+                "name": "Radius",
+                "type": "float",
+                "value": 128
+            },
+            {
+                "name": "Sprite",
+                "type": "string",
+                "value": "default_lamp"
+            }
+        ]
+    },
+    {
+        "color": "#ffff0000",
+        "name": "laser_beam",
+        "properties": [
+            {
+                "name": "Direction",
+                "type": "int",
+                "value": 1
+            },
+            {
+                "name": "IsOn",
+                "type": "bool",
+                "value": true
+            }
+        ]
+    },
+    {
+        "color": "#ffff0000",
+        "name": "level_summary",
+        "properties": [
+            {
+                "name": "AreaName",
+                "type": "string",
+                "value": ""
+            },
+            {
+                "name": "LevelName",
+                "type": "string",
+                "value": ""
+            }
+        ]
+    },
+    {
+        "color": "#fffeffbb",
+        "name": "light",
+        "properties": [
+            {
+                "name": "Bleeding",
+                "type": "float",
+                "value": 32
+            },
+            {
+                "name": "Color",
+                "type": "color",
+                "value": "#ffffffff"
+            },
+            {
+                "name": "Intensity",
+                "type": "float",
+                "value": 0.2
+            },
+            {
+                "name": "IsCastingShadows",
+                "type": "bool",
+                "value": true
+            },
+            {
+                "name": "Radius",
+                "type": "float",
+                "value": 200
+            }
+        ]
+    },
+    {
+        "color": "#ff54fdff",
+        "name": "lightning_bolt",
+        "properties": [
+            {
+                "name": "ChargingSpeedA",
+                "type": "float",
+                "value": 0.01
+            },
+            {
+                "name": "ChargingSpeedB",
+                "type": "float",
+                "value": 0.02
+            },
+            {
+                "name": "Color",
+                "type": "color",
+                "value": "#ff79fdff"
+            },
+            {
+                "name": "IsBackground",
+                "type": "bool",
+                "value": true
+            },
+            {
+                "name": "SingleDischargeA",
+                "type": "float",
+                "value": 0.4
+            },
+            {
+                "name": "SingleDischargeB",
+                "type": "float",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "color": "#ffff00ff",
+        "name": "marker",
+        "properties": [
+        ]
+    },
+    {
+        "color": "#ff919194",
+        "name": "mech",
+        "properties": [
+            {
+                "name": "Direction",
+                "type": "int",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "color": "#ff81ce5d",
+        "name": "missile_tank",
+        "properties": [
+            {
+                "name": "Direction",
+                "type": "int",
+                "value": 1
+            },
+            {
+                "name": "InitState",
+                "type": "bool",
+                "value": true
+            }
+        ]
+    },
+    {
+        "color": "#ffff0004",
+        "name": "monster",
+        "properties": [
+            {
+                "name": "Class",
+                "type": "string",
+                "value": "infiltrator"
+            },
+            {
+                "name": "IsOverworldSpawn",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "IsPlayer",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "StartsInJar",
+                "type": "bool",
+                "value": false
+            }
+        ]
+    },
+    {
+        "color": "#ffa0a0a4",
+        "name": "morph_mask",
+        "properties": [
+        ]
+    },
+    {
+        "color": "#ff76a470",
+        "name": "nuclear_core",
+        "properties": [
+        ]
+    },
+    {
+        "color": "#ffaaeb48",
+        "name": "nuclear_core_dispenser",
+        "properties": [
+        ]
+    },
+    {
+        "color": "#ff3bff00",
+        "name": "nuclear_generator",
+        "properties": [
+            {
+                "name": "InitFuelState",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "InitState",
+                "type": "float",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "color": "#ffb9f8ff",
+        "name": "obstacle",
+        "properties": [
+            {
+                "name": "Strength",
+                "type": "int",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "color": "#ffc6f5c2",
+        "name": "palm_reader",
+        "properties": [
+            {
+                "name": "InitState",
+                "type": "bool",
+                "value": true
+            }
+        ]
+    },
+    {
+        "color": "#ffc6f5c2",
+        "name": "palm_scanner",
+        "properties": [
+            {
+                "name": "InitState",
+                "type": "bool",
+                "value": true
+            }
+        ]
+    },
+    {
+        "color": "#ff88a47c",
+        "name": "parallax",
+        "properties": [
+            {
+                "name": "AnimationDuration",
+                "type": "float",
+                "value": 1
+            },
+            {
+                "name": "AnimationX",
+                "type": "float",
+                "value": 0
+            },
+            {
+                "name": "AnimationY",
+                "type": "float",
+                "value": 0
+            },
+            {
+                "name": "Color",
+                "type": "color",
+                "value": "#ffffffff"
+            },
+            {
+                "name": "Depth",
+                "type": "float",
+                "value": 0
+            },
+            {
+                "name": "FitSizeToTexture",
+                "type": "bool",
+                "value": true
+            },
+            {
+                "name": "FlipX",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "FlipY",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "HasTransition",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "IsBackground",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "OffsetX",
+                "type": "int",
+                "value": 0
+            },
+            {
+                "name": "OffsetY",
+                "type": "int",
+                "value": 0
+            },
+            {
+                "name": "Texture",
+                "type": "string",
+                "value": "Default"
+            },
+            {
+                "name": "TransitionColor",
+                "type": "color",
+                "value": ""
+            },
+            {
+                "name": "TransitionMovementX",
+                "type": "float",
+                "value": 0
+            },
+            {
+                "name": "TransitionMovementY",
+                "type": "float",
+                "value": 0
+            },
+            {
+                "name": "Type",
+                "type": "string",
+                "value": "single"
+            }
+        ]
+    },
+    {
+        "color": "#ff825b39",
+        "name": "plain_door",
+        "properties": [
+            {
+                "name": "CanBeLocked",
+                "type": "bool",
+                "value": true
+            },
+            {
+                "name": "IsLeft",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "IsLocked",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "IsOpened",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "Strength",
+                "type": "int",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "color": "#ff00ffff",
+        "name": "portal",
+        "properties": [
+            {
+                "name": "AutoDirectionX",
+                "type": "float",
+                "value": 0
+            },
+            {
+                "name": "AutoDirectionY",
+                "type": "float",
+                "value": 0
+            },
+            {
+                "name": "IsAutomatic",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "LightColor",
+                "type": "color",
+                "value": "#ffffffff"
+            },
+            {
+                "name": "Target",
+                "type": "string",
+                "value": ""
+            }
+        ]
+    },
+    {
+        "color": "#ffc34bff",
+        "name": "power_node",
+        "properties": [
+            {
+                "name": "ChargingSpeed",
+                "type": "float",
+                "value": 0.2
+            },
+            {
+                "name": "InitInput",
+                "type": "float",
+                "value": 1
+            },
+            {
+                "name": "InitOutput",
+                "type": "float",
+                "value": 1
+            },
+            {
+                "name": "IsReinforced",
+                "type": "bool",
+                "value": false
+            }
+        ]
+    },
+    {
+        "color": "#ff00f3ff",
+        "name": "rain_splashes",
+        "properties": [
+            {
+                "name": "Intensity",
+                "type": "float",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "color": "#ff0062ff",
+        "name": "reverb_zone",
+        "properties": [
+            {
+                "name": "Name",
+                "type": "string",
+                "value": ""
+            }
+        ]
+    },
+    {
+        "color": "#ffff8b8b",
+        "name": "rivet",
+        "properties": [
+            {
+                "name": "Orientation",
+                "type": "int",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "color": "#ffff0000",
+        "name": "scout_drone",
+        "properties": [
+            {
+                "name": "IsDeployed",
+                "type": "bool",
+                "value": false
+            }
+        ]
+    },
+    {
+        "color": "#ffa46a6a",
+        "name": "sentry_drone",
+        "properties": [
+            {
+                "name": "IsLocked",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "IsProximityMode",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "IsReleased",
+                "type": "bool",
+                "value": false
+            }
+        ]
+    },
+    {
+        "color": "#ff909bff",
+        "name": "sequence_code",
+        "properties": [
+            {
+                "name": "SequenceNumber",
+                "type": "int",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "color": "#ff92ffe8",
+        "name": "sequence_entrance",
+        "properties": [
+            {
+                "name": "InitState",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "NextLevel",
+                "type": "string",
+                "value": ""
+            },
+            {
+                "name": "Screen",
+                "type": "string",
+                "value": "sequence0"
+            }
+        ]
+    },
+    {
+        "color": "#ffa6ff80",
+        "name": "simple_plant",
+        "properties": [
+            {
+                "name": "Density",
+                "type": "int",
+                "value": 2
+            },
+            {
+                "name": "Probability",
+                "type": "float",
+                "value": 0.5
+            },
+            {
+                "name": "Seed",
+                "type": "int",
+                "value": 12345
+            },
+            {
+                "name": "SpriteClass",
+                "type": "int",
+                "value": 0
+            },
+            {
+                "name": "WindMultiplier",
+                "type": "float",
+                "value": 0.3
+            }
+        ]
+    },
+    {
+        "color": "#ffff943c",
+        "name": "sticky_bomb",
+        "properties": [
+            {
+                "name": "IsOn",
+                "type": "bool",
+                "value": true
+            }
+        ]
+    },
+    {
+        "color": "#ffa52e71",
+        "name": "switch",
+        "properties": [
+            {
+                "name": "IsEnabled",
+                "type": "bool",
+                "value": true
+            },
+            {
+                "name": "IsOn",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "IsTimed",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "IsToggle",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "StateChangeCooldown",
+                "type": "float",
+                "value": 0.5
+            },
+            {
+                "name": "Timeout",
+                "type": "float",
+                "value": 5
+            },
+            {
+                "name": "Variant",
+                "type": "string",
+                "value": "SLIDE"
+            }
+        ]
+    },
+    {
+        "color": "#ffff0000",
+        "name": "tilemap_morph",
+        "properties": [
+        ]
+    },
+    {
+        "color": "#ff8eb6ff",
+        "name": "tooltip_trigger",
+        "properties": [
+            {
+                "name": "DisableAfterUse",
+                "type": "bool",
+                "value": true
+            },
+            {
+                "name": "InitState",
+                "type": "float",
+                "value": 1
+            },
+            {
+                "name": "IsTriggeredByImpersonation",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "IsTriggeredByPhysics",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "MessageForGamepad",
+                "type": "string",
+                "value": ""
+            },
+            {
+                "name": "MessageForKeyboard",
+                "type": "string",
+                "value": ""
+            }
+        ]
+    },
+    {
+        "color": "#ffa49d8a",
+        "name": "turbine",
+        "properties": [
+            {
+                "name": "InitState",
+                "type": "bool",
+                "value": false
+            }
+        ]
+    },
+    {
+        "color": "#ff9c451f",
+        "name": "turret",
+        "properties": [
+            {
+                "name": "InitAngle",
+                "type": "int",
+                "value": 900000
+            },
+            {
+                "name": "InitOn",
+                "type": "bool",
+                "value": true
+            },
+            {
+                "name": "ProjectileType",
+                "type": "string",
+                "value": "bullet"
+            },
+            {
+                "name": "RotationSpeed",
+                "type": "int",
+                "value": 10000
+            },
+            {
+                "name": "ScanAngleA",
+                "type": "int",
+                "value": 200000
+            },
+            {
+                "name": "ScanAngleB",
+                "type": "int",
+                "value": 1600000
+            },
+            {
+                "name": "ScanDirection",
+                "type": "int",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "color": "#ffa9ffee",
+        "name": "upgrade_container",
+        "properties": [
+            {
+                "name": "IsBroken",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "Sequence",
+                "type": "string",
+                "value": ""
+            },
+            {
+                "name": "UpgradeType",
+                "type": "string",
+                "value": "NONE"
+            }
+        ]
+    },
+    {
+        "color": "#ff37ff00",
+        "name": "verlet",
+        "properties": [
+            {
+                "name": "BuoyancyMultiplier",
+                "type": "float",
+                "value": 0.5
+            },
+            {
+                "name": "FixA",
+                "type": "bool",
+                "value": true
+            },
+            {
+                "name": "FixB",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "Hardness",
+                "type": "float",
+                "value": 0.8
+            },
+            {
+                "name": "MassMultiplier",
+                "type": "float",
+                "value": 1
+            },
+            {
+                "name": "SegmentLength",
+                "type": "int",
+                "value": 8
+            },
+            {
+                "name": "Sprite",
+                "type": "string",
+                "value": "lamp_cord"
+            },
+            {
+                "name": "WindMultiplier",
+                "type": "float",
+                "value": 0.3
+            }
+        ]
+    },
+    {
+        "color": "#ffc3c3c7",
+        "name": "verlet_lamp_strip",
+        "properties": [
+            {
+                "name": "ColorA",
+                "type": "color",
+                "value": "#ffff0000"
+            },
+            {
+                "name": "ColorB",
+                "type": "color",
+                "value": "#ffff0000"
+            },
+            {
+                "name": "ColorC",
+                "type": "color",
+                "value": "#ffff0000"
+            },
+            {
+                "name": "ColorD",
+                "type": "color",
+                "value": "#ffff0000"
+            },
+            {
+                "name": "ColorE",
+                "type": "color",
+                "value": "#ffff0000"
+            },
+            {
+                "name": "ColorF",
+                "type": "color",
+                "value": "#ffff0000"
+            },
+            {
+                "name": "FixA",
+                "type": "bool",
+                "value": true
+            },
+            {
+                "name": "FixB",
+                "type": "bool",
+                "value": true
+            },
+            {
+                "name": "IsOn",
+                "type": "bool",
+                "value": true
+            }
+        ]
+    },
+    {
+        "color": "#ffa0ff11",
+        "name": "verlet_plant",
+        "properties": [
+            {
+                "name": "BuoyancyMultiplier",
+                "type": "float",
+                "value": 0.5
+            },
+            {
+                "name": "EqualWeightDistribution",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "FixA",
+                "type": "bool",
+                "value": true
+            },
+            {
+                "name": "FixB",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "Hardness",
+                "type": "float",
+                "value": 0.8
+            },
+            {
+                "name": "LeafProbability",
+                "type": "float",
+                "value": 0.5
+            },
+            {
+                "name": "LeafSprite",
+                "type": "string",
+                "value": "leaf_large"
+            },
+            {
+                "name": "MassMultiplier",
+                "type": "float",
+                "value": 1
+            },
+            {
+                "name": "Seed",
+                "type": "int",
+                "value": 12345
+            },
+            {
+                "name": "SegmentLength",
+                "type": "int",
+                "value": 8
+            },
+            {
+                "name": "SpringForce",
+                "type": "float",
+                "value": 0.5
+            },
+            {
+                "name": "Sprite",
+                "type": "string",
+                "value": "stalk_large"
+            },
+            {
+                "name": "WindMultiplier",
+                "type": "float",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "color": "#ff21cfff",
+        "name": "water",
+        "properties": [
+            {
+                "name": "HotSpring",
+                "type": "bool",
+                "value": false
+            },
+            {
+                "name": "LevelChangeOnReceive",
+                "type": "float",
+                "value": 0
+            },
+            {
+                "name": "LevelChangeSpeed",
+                "type": "float",
+                "value": 5
+            },
+            {
+                "name": "WindMultiplier",
+                "type": "float",
+                "value": 0
+            }
+        ]
+    }
+]

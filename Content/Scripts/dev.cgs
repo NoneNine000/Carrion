@@ -1,0 +1,174 @@
+door1_sweep = (SWEEP_AI()) -> [door1_marker, duration 0] -> [door1_marker, duration 5];
+door1_sweep_2 = (SWEEP()) -> [door1_marker, duration 0] -> [door1_marker, duration 5];
+
+pwr1 -> pwr1_lamp1 -> pwr1_lamp2 -> (DELAY(1)) -> (NOT()) -> (PROGRESS_CUE(0)) -> door1 -> door1_sweep;
+pwr2 -> door1_sweep_2;
+
+#lower corridor
+
+switch1_lamp_or = (OR());
+switch2_lamp_or = (OR());
+
+switch1_lamp_or -> switch1_lamp;
+switch2_lamp_or -> switch2_lamp;
+
+
+switch1 -> switch1_lamp_or;
+switch2 -> switch2_lamp_or;
+
+door_a_and_b_cue = (PROGRESS_CUE(0));
+
+door_switch = (SWITCH(0));
+door_and = (AND());
+
+switch1 -> door_and;
+switch2 -> door_and;
+door_and -> door_switch;
+
+door_switch -> switch1_lamp_or;
+door_switch -> switch2_lamp_or;
+door_switch -> door_a_and_b_cue;
+door_switch -> lower_corridor_door_a -> lower_corridor_door_b;
+
+#test drone spawn
+
+drone_switch1 -> (drone1.LockCircuitNode);
+drone_switch2 -> drone1;
+
+turret_switch1 -> turret;
+
+water_switch1 -> test_water;
+
+#fmod test for Maciej
+
+fmod_switch -> fmod_door;
+
+#floodgate test
+
+switch3 -> floodgate0 -> floodgate1;
+
+#generator test chamber
+
+generator1 -> generator1_lamp1 -> generator1_lamp2 -> generator1_lamp3 -> generator1_lamp4;
+generator1 -> (THRESHOLD(0.01)) -> (NOT()) -> generator1_lamp_not;
+generator1 -> (THRESHOLD(1.0)) -> generator1_demo_door;
+
+
+#laser beams
+
+laser_beam1 -> laser_beam_lamp1;
+laser_beam2 -> laser_beam_lamp2;
+laser_beam3 -> laser_beam_lamp3;
+laser_beam4 -> laser_beam_lamp4;
+
+laser_beam_switch1 -> laser_beam1;
+laser_beam_switch1 -> laser_beam2;
+laser_beam_switch1 -> laser_beam3;
+laser_beam_switch1 -> laser_beam4;
+
+laser_beam1 -> (PASS(0)) -> (NOT()) -> (laser_beam_switch1.EnabledState);
+laser_beam2 -> (PASS(0)) -> (NOT()) -> (laser_beam_switch1.EnabledState);
+laser_beam3 -> (PASS(0)) -> (NOT()) -> (laser_beam_switch1.EnabledState);
+laser_beam4 -> (PASS(0)) -> (NOT()) -> (laser_beam_switch1.EnabledState);
+
+laser_beam1 -> (PASS(0)) -> laser_beam_switch1;
+laser_beam2 -> (PASS(0)) -> laser_beam_switch1;
+laser_beam3 -> (PASS(0)) -> laser_beam_switch1;
+laser_beam4 -> (PASS(0)) -> laser_beam_switch1;
+
+#dispenser
+
+dispenser_switch -> dispenser_lamp -> dispenser;
+(dispenser_reset.BeamCrossed) -> (PASS(0)) -> dispenser_switch;
+
+
+#srlatch
+
+srlatch = SRLATCH(0);
+srlatch_reset -> (srlatch.Reset);
+srlatch_set -> (srlatch.Set);
+(srlatch.Q) -> srlatch_q;
+(srlatch.NQ) -> srlatch_nq;
+
+#morph test
+
+test_morph:SetMask(mask1);
+test_morph:SetMask(mask2);
+test_morph:BuildBowels();
+
+morph_event = (SWEEP_EVENT());
+morph_sweep = (SWEEP()) -> [morph_marker, duration 4] ->
+    [morph_event, duration 0] -> [morph_marker, duration 5];
+
+test_morph_checkpoint -> (DELAY(1.5)) -> morph_sweep -> (DELAY(0.5)) -> tentacle1 -> tentacle2 -> tentacle3;
+
+(WAIT_FOR_EVENT(morph_event)) -> test_morph -> (DELAY(12)) -> tentacle4 -> tentacle5 -> tentacle6 -> tentacle7 -> tentacle8;
+
+generator1 -> pwr3;
+
+#jammers
+
+and1 = (AND());
+jammer_rec1 -> and1;
+jammer_rec2 -> and1;
+
+and1 -> jammed_door1;
+
+
+and2 = (AND());
+jammer_rec3 -> and2;
+jammer_rec4 -> and2;
+
+and2 -> jammed_door2;
+
+and3 = (AND());
+jammer_rec5 -> and3;
+jammer_rec6 -> and3;
+
+and3 -> test_block_door1 -> test_block_door2;
+
+jammer_enabler -> jammer_rec1;
+jammer_enabler -> jammer_rec2;
+
+jammer_rec1:Observe(jammer1_1);
+#jammer_rec1:Observe((jammer1_2.Drone));
+jammer_rec2:Observe((jammer2_1.Drone));
+jammer_rec2:Observe(jammer2_2);
+
+#(jammer1_holder.Drop):StoreItem(jammer1);
+#(jammer2_holder.Drop):StoreItem(jammer2);
+(jammer3_holder.Drop):StoreItem(jammer3);
+
+
+#multi-level water test
+
+sum = (SUM());
+
+water_level1 -> (AMP(2)) -> sum;
+water_level2 -> sum;
+
+sum -> water_level_test;
+
+sum -> test_display1;
+sum -> test_display2;
+
+palm_reader_or = (OR());
+test_palm_reader1 -> palm_reader_or;
+test_palm_reader2 -> palm_reader_or;
+
+palm_reader_or -> test_palm_scanner;
+(test_palm_scanner.ProcessingState) -> test_palm_reader1;
+(test_palm_scanner.ProcessingState) -> test_palm_reader2;
+test_palm_scanner -> palm_block_door;
+
+elevator3_trigger -> (NOT()) -> elevator3_door1 -> elevator3_door2;
+elevator3_trigger -> (DELAY(5)) -> (NEXT_LEVEL("ending"));
+elevator3_trigger -> (DELAY(1)) -> elevator3;
+
+
+seq0_test -> (NOT()) -> seq0_lamp1;
+seq0_test -> (NOT()) -> seq0_lamp2;
+
+#bomb tests
+
+bomb_switch -> bomb;

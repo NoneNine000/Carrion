@@ -1,0 +1,27 @@
+{ "object":
+    {
+     "height":0,
+     "id":2414,
+     "name":"",
+     "polyline":[
+            {
+             "x":-1,
+             "y":-5
+            }, 
+            {
+             "x":16,
+             "y":0
+            }, 
+            {
+             "x":31,
+             "y":-5
+            }],
+     "rotation":0,
+     "type":"human_corpse",
+     "visible":true,
+     "width":0,
+     "x":5765,
+     "y":2219
+    },
+ "type":"template"
+}

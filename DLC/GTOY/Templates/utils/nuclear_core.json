@@ -1,0 +1,15 @@
+{
+	"object": {
+		"ellipse": true,
+		"height": 16,
+		"id": 1469,
+		"name": "",
+		"rotation": 0,
+		"type": "nuclear_core",
+		"visible": true,
+		"width": 16,
+		"x": 3568,
+		"y": 624
+	},
+	"type": "template"
+}

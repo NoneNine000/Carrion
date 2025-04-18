@@ -1,0 +1,40 @@
+{
+	"object": {
+		"height": 0,
+		"id": 1722,
+		"name": "",
+		"polyline": [
+			{
+				"x": 16,
+				"y": -88
+			},
+			{
+				"x": -28,
+				"y": 40
+			},
+			{
+				"x": -60,
+				"y": -68
+			}
+		],
+		"properties": [
+			{
+				"name": "FixB",
+				"type": "bool",
+				"value": true
+			},
+			{
+				"name": "Sprite",
+				"type": "string",
+				"value": "Objects/vine"
+			}
+		],
+		"rotation": 0,
+		"type": "verlet",
+		"visible": true,
+		"width": 0,
+		"x": 796,
+		"y": 148
+	},
+	"type": "template"
+}

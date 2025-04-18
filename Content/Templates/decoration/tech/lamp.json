@@ -1,0 +1,31 @@
+{
+	"object": {
+		"height": 0,
+		"id": 382,
+		"name": "",
+		"polyline": [
+			{
+				"x": 0,
+				"y": 0
+			},
+			{
+				"x": 0,
+				"y": -128
+			}
+		],
+		"properties": [
+			{
+				"name": "Color",
+				"type": "color",
+				"value": "#ffffffff"
+			}
+		],
+		"rotation": 0,
+		"type": "lamp",
+		"visible": true,
+		"width": 0,
+		"x": 952,
+		"y": 652
+	},
+	"type": "template"
+}

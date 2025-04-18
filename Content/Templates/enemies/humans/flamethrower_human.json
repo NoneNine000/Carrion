@@ -1,0 +1,35 @@
+{
+	"object": {
+		"height": 0,
+		"id": 299,
+		"name": "",
+		"polygon": [
+			{
+				"x": 0,
+				"y": 0
+			},
+			{
+				"x": 18,
+				"y": -32
+			},
+			{
+				"x": -18,
+				"y": -32
+			}
+		],
+		"properties": [
+			{
+				"name": "Weapon",
+				"type": "string",
+				"value": "flamethrower"
+			}
+		],
+		"rotation": 0,
+		"type": "human",
+		"visible": true,
+		"width": 0,
+		"x": 632,
+		"y": 484
+	},
+	"type": "template"
+}

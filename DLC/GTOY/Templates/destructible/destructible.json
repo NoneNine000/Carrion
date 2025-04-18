@@ -1,0 +1,14 @@
+{
+	"object": {
+		"height": 32,
+		"id": 544,
+		"name": "",
+		"rotation": 0,
+		"type": "destructible",
+		"visible": true,
+		"width": 32,
+		"x": 544,
+		"y": 736
+	},
+	"type": "template"
+}

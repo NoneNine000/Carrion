@@ -1,0 +1,20 @@
+{ "object":
+    {
+     "height":46,
+     "id":2362,
+     "name":"",
+     "properties":[
+            {
+             "name":"TypeStr",
+             "type":"string",
+             "value":"vending_machine"
+            }],
+     "rotation":0,
+     "type":"destructible",
+     "visible":true,
+     "width":32,
+     "x":4208,
+     "y":1378
+    },
+ "type":"template"
+}

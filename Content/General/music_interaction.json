@@ -1,0 +1,9 @@
+{
+  "enemies": 0.1,
+  "alert": 0.2,
+  "hostileAlert": 5.0,
+  "kill": 2,
+  "playerHurt": 1.0,
+  "upgrade": 5.0,
+  "progress": 10.0
+}

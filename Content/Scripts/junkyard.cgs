@@ -1,0 +1,61 @@
+tutorial_door1_switch -> (NOT()) -> tutorial_door1;
+tutorial_door2_switch -> tutorial_door2;
+
+#morphing checkpoint 1
+
+morph_1:SetMask(mask1_1);
+morph_1:SetMask(mask2_1);
+morph_1:SetMask(mask3_1);
+morph_1:SetMask(mask4_1);
+morph_1:BuildBowels();
+
+morph_checkpoint_1 -> tentacle1_1 -> tentacle2_1 -> tentacle3_1 -> morph_1;
+
+skilljar_floodgate_sweep = (SWEEP()) -> [skilljar_lever_marker, duration 0] -> [skilljar_lever_marker, duration 1] -> [skilljar_marker, duration 0] -> [skilljar_marker, duration 4];
+skilljar_floodgate_lever -> (NOT()) -> skilljar_floodgate_sweep -> (DELAY(2)) -> skilljar_floodgate;
+
+floodgate_switch -> floodgate;
+
+floodgate_event2 = (SWEEP_EVENT());
+floodgate_event3 = (SWEEP_EVENT());
+floodgate_sweep2 = (SWEEP()) -> [floodgate_marker2, duration 0] -> [floodgate_event2, duration 0] -> [floodgate_marker2, duration 6];
+floodgate_sweep3 = (SWEEP()) -> [floodgate_marker3, duration 0] -> [floodgate_event3, duration 0] -> [floodgate_marker3, duration 7];
+floodgate_switch2 -> (DELAY(1)) -> floodgate_sweep3 -> (DELAY(6)) -> floodgate_sweep2 -> (DELAY(8)) -> roar2_tooltip;
+(WAIT_FOR_EVENT(floodgate_event2)) -> floodgate2;
+(WAIT_FOR_EVENT(floodgate_event3)) -> floodgate3 -> tooltip_door;
+
+
+
+
+#BACKTRACKING
+
+#morphing checkpoint
+
+morph:SetMask(mask1);
+morph:SetMask(mask2);
+morph:BuildBowels();
+
+morph_checkpoint -> tentacle1 -> tentacle2 -> tentacle3 -> morph;
+
+
+backtracking_door1_switch -> backtracking_door1 -> retrieval_tooltip;
+
+
+#tentacles
+hive2 -> hive2_tentacle1 -> hive2_tentacle2 -> hive2_tentacle3;
+hive3 -> hive3_tentacle1 -> hive3_tentacle2 -> hive3_tentacle3;
+
+hive3 -> (NOT()) -> roar2_tooltip;
+
+
+#SCREENS
+
+pc1 -> screen1;
+pc2 -> screen2;
+pc3 -> screen3;
+pc4 -> screen4;
+pc5 -> screen5;
+
+
+secret_jar -> secret_lamp0;
+secret_jar -> secret_lamp1;

@@ -1,0 +1,15 @@
+{ "object":
+    {
+     "height":0,
+     "id":1681,
+     "name":"",
+     "point":true,
+     "rotation":0,
+     "type":"generic_interaction",
+     "visible":true,
+     "width":0,
+     "x":771,
+     "y":1198
+    },
+ "type":"template"
+}

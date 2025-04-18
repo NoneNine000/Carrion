@@ -1,0 +1,14 @@
+{
+	"object": {
+		"height": 52,
+		"id": 562,
+		"name": "",
+		"rotation": 0,
+		"type": "hive_place",
+		"visible": true,
+		"width": 80,
+		"x": 2804,
+		"y": 1472
+	},
+	"type": "template"
+}

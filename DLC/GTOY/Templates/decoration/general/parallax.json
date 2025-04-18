@@ -1,0 +1,56 @@
+{
+	"object": {
+		"height": 163,
+		"id": 815,
+		"name": "",
+		"properties": [
+			{
+				"name": "Color",
+				"type": "color",
+				"value": "#ff97cbdd"
+			},
+			{
+				"name": "Depth",
+				"type": "float",
+				"value": -0.2
+			},
+			{
+				"name": "FitSizeToTexture",
+				"type": "bool",
+				"value": false
+			},
+			{
+				"name": "IsBackground",
+				"type": "bool",
+				"value": true
+			},
+			{
+				"name": "OffsetX",
+				"type": "int",
+				"value": 0
+			},
+			{
+				"name": "OffsetY",
+				"type": "int",
+				"value": 0
+			},
+			{
+				"name": "Texture",
+				"type": "string",
+				"value": "Computers\nComputers_1\nComputers_2\nComputers_3"
+			},
+			{
+				"name": "Type",
+				"type": "string",
+				"value": "repeat"
+			}
+		],
+		"rotation": 0,
+		"type": "parallax",
+		"visible": true,
+		"width": 318,
+		"x": 1952,
+		"y": 468
+	},
+	"type": "template"
+}

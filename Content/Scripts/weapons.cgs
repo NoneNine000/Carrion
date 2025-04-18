@@ -1,0 +1,213 @@
+%ifdef LIGHT_WORLD
+
+elevator1_switch1 -> (PASS(0)) -> (NOT()) -> elevator1_switch2;
+elevator1_switch1 -> (PASS(1)) -> (NOT()) -> elevator1_switch2;
+elevator1_switch2 -> (DELAY(0)) -> (PASS(0)) -> (NOT()) -> elevator1_switch1;
+elevator1_switch2 -> (DELAY(0)) -> (PASS(1)) -> (NOT()) -> elevator1_switch1;
+elevator1_switch1 -> elevator1;
+
+elevator2_switch1 -> (PASS(0)) -> (NOT()) -> elevator2_switch2;
+elevator2_switch1 -> (PASS(1)) -> (NOT()) -> elevator2_switch2;
+elevator2_switch2 -> (DELAY(0)) -> (PASS(0)) -> (NOT()) -> elevator2_switch1;
+elevator2_switch2 -> (DELAY(0)) -> (PASS(1)) -> (NOT()) -> elevator2_switch1;
+elevator2_switch1 -> elevator2;
+
+elevator3_switch1 -> (PASS(0)) -> (NOT()) -> elevator3_switch2;
+elevator3_switch1 -> (PASS(1)) -> (NOT()) -> elevator3_switch2;
+elevator3_switch2 -> (DELAY(0)) -> (PASS(0)) -> (NOT()) -> elevator3_switch1;
+elevator3_switch2 -> (DELAY(0)) -> (PASS(1)) -> (NOT()) -> elevator3_switch1;
+elevator3_switch1 -> elevator3;
+
+
+bomb1_event = (SWEEP_EVENT());
+bomb1_sweep = (SWEEP()) -> [bomb1_marker, duration 0] -> [bomb1_event, duration 0] -> [bomb1_marker, duration 2];
+bomb1_switch -> (DELAY(1)) -> bomb1_sweep;
+(WAIT_FOR_EVENT(bomb1_event)) -> (NOT()) -> bomb1;
+
+
+switch1 -> door1a -> (NOT()) -> door1c;
+
+
+turret_event = (SWEEP_EVENT());
+turret_sweep = (SWEEP()) -> [turret_marker, duration 0] -> [turret_event, duration 0] -> [turret_marker, duration 2];
+turret_switch -> (DELAY(1)) -> turret_sweep;
+(WAIT_FOR_EVENT(turret_event)) -> (NOT()) -> turret;
+
+
+door2_event = (SWEEP_EVENT());
+door2_sweep = (SWEEP()) -> [door2_marker, duration 0] -> [door2_event, duration 0] -> [door2_marker, duration 6];
+switch2 -> (DELAY(1)) -> door2_sweep;
+(WAIT_FOR_EVENT(door2_event)) -> door2a -> door2b;# -> (NOT()) -> toilet_door;
+
+#switch3 -> door3b -> (NOT()) -> door3a;
+
+
+dronelaser1_a -> dronelaser1_b -> (NOT()) -> drone1 -> drone2 -> drone3 -> drone4 -> scout_drones;
+dronelaser1_switch -> dronelaser1_a;
+drone_laser_door1 -> drone_laser_door2;
+dronelaser1_switch -> drone_laser_door1;
+dronelaser1_switch -> (NOT()) -> laser_drone_jammer_rec;
+dronelaser1_switch -> (droneswitch.EnabledState);
+dronelaser1_a -> (PASS(0)) -> (NOT()) -> (dronelaser1_switch.EnabledState);
+dronelaser1_a -> (PASS(0)) -> dronelaser1_switch;
+dronelaser1_b -> (PASS(0)) -> (NOT()) -> (dronelaser1_switch.EnabledState);
+dronelaser1_b -> (PASS(0)) -> dronelaser1_switch;
+
+droneswitch -> dronedoor;
+droneswitch -> (drone1.LockCircuitNode) -> (drone2.LockCircuitNode) -> (drone3.LockCircuitNode) -> (drone4.LockCircuitNode);
+droneswitch -> (NOT()) -> dronelaser1_a;
+droneswitch -> (DELAY(0.1)) -> (NOT()) -> laser_drone_jammer_rec;
+droneswitch -> (DELAY(0.1)) -> (PASS(1)) -> drone_laser_door1;
+droneswitch -> (DELAY(0.1)) -> (PASS(0)) -> drone_laser_door1;
+droneswitch -> (DELAY(0.1)) -> (NOT()) -> scout_drones;
+droneswitch -> door1c;
+droneswitch -> toilet_door;
+
+laser_drone_jammer_rec -> (droneswitch.EnabledState);
+laser_drone_jammer_rec:Observe((drone1.Drone));
+laser_drone_jammer_rec:Observe((drone2.Drone));
+laser_drone_jammer_rec:Observe((drone3.Drone));
+laser_drone_jammer_rec:Observe((drone4.Drone));
+laser_drone_jammer_rec:Observe(scout_drones);
+
+
+
+mech_door1_switch -> mech_door1;
+
+
+
+
+
+#belevator_switch -> elevator1a -> elevator1c -> (NOT()) -> elevator1b;
+
+
+
+
+#tentacle4 -> tentacle5 -> tentacle6 -> tentacle7 -> tentacle8;
+
+
+
+
+
+
+loopback_door_switch -> loopback_door -> (NOT()) -> toilet_door;
+
+%endif
+
+
+
+toilet_door_event = (SWEEP_EVENT());
+toilet_door_sweep = (SWEEP()) -> [toilet_door_marker, duration 0] -> [toilet_door_event, duration 0] -> [toilet_door_marker, duration 4];
+toilet_door_switch -> (DELAY(1)) -> toilet_door_sweep;
+(WAIT_FOR_EVENT(toilet_door_event)) -> toilet_door;
+
+
+
+direction_door_switch -> (DELAY(0.5)) -> direction_door2 -> (NOT()) -> direction_door1;
+direction_door_switch_b -> direction_door1 -> direction_door3;
+
+direction_door_sweep = (SWEEP()) -> [direction_door_marker, duration 0] -> [direction_door_marker, duration 1];
+direction_door_switch -> (DELAY(0.5)) -> direction_door_sweep;
+
+
+#crossroads shenanigans
+switch4a -> (PASS(0)) -> switch4b;
+switch4a -> (PASS(1)) -> switch4b;
+switch4b -> (PASS(0)) -> (NOT()) -> switch4c;
+switch4b -> (PASS(1)) -> (NOT()) -> switch4c;
+switch4c -> (PASS(0)) -> switch4d;
+switch4c -> (PASS(1)) -> switch4d;
+switch4d -> (DELAY(0)) -> (PASS(0)) -> (NOT()) -> switch4a;
+switch4d -> (DELAY(0)) -> (PASS(1)) -> (NOT()) -> switch4a;
+
+crossroads_door_sweep = (SWEEP()) -> [door4_marker, duration 0] -> [door4_marker, duration 3.7];
+switch4a -> door4a -> door4b -> (NOT()) -> door4c -> door4d;
+switch4a -> (DELAY(0.5)) -> crossroads_door_sweep;
+switch4a -> (NOT()) -> (DELAY(0.5)) -> crossroads_door_sweep;
+
+switch_ab_and = (AND());
+switch_cd_and = (AND());
+
+switch_ab_and -> (switch4a.EnabledState) -> (switch4b.EnabledState);
+switch_cd_and -> (switch4c.EnabledState) -> (switch4d.EnabledState);
+
+door4c -> switch_ab_and;
+door4a -> switch_cd_and;
+
+(door4a.OperatingState) -> (NOT()) -> switch_ab_and;
+(door4a.OperatingState) -> (NOT()) -> switch_cd_and;
+
+turret1_switch -> turret1;
+turret2_switch -> turret2;
+
+
+
+#morphing checkpoint
+
+morph:SetMask(mask1);
+morph:SetMask(mask2);
+morph:BuildBowels();
+
+morph_checkpoint -> tentacle1 -> tentacle2 -> tentacle3 -> morph;
+
+
+
+
+#jammers
+
+jammer_rec1 -> mech_door -> mech_door_b;
+jammer_rec1:Observe(jammer1_holder);
+jammer_rec1:Observe(jammer2_holder);
+
+(drone_jammer_holder.ActiveState) -> (NOT()) -> drone_arena_door;
+
+drone_jammer_rec:Observe(drone_jammer_holder);
+drone_jammer_rec -> drone_jammed_door;
+
+final_jammer_holder -> final_jammer_rec;
+final_jammer_holder -> (NOT()) -> final_jammed_door;
+final_jammer_rec -> final_jammed_door;
+final_jammer_rec:Observe((final_jammer_holder.Drone));
+
+#"launch pad" light sequence
+
+seq1 = (SEQUENCER(4, 4, 1, 0, 0, 0));
+seq2 = (SEQUENCER(4, 4, 0, 1, 0, 0));
+seq3 = (SEQUENCER(4, 4, 0, 0, 1, 0));
+
+seq_and1 = (AND());
+seq_and2 = (AND());
+seq_and3 = (AND());
+
+seq1 -> seq_and1;
+drone_jammer_rec -> seq_and1;
+seq2 -> seq_and2;
+drone_jammer_rec -> seq_and2;
+seq3 -> seq_and3;
+drone_jammer_rec -> seq_and3;
+
+seq_and1 -> seq_1l -> seq_1r;
+seq_and2 -> seq_2l -> seq_2r;
+seq_and3 -> seq_3l -> seq_3r;
+
+#tentacles
+
+hive1 -> hive1_tentacle1 -> hive1_tentacle2 -> hive1_tentacle3;
+hive2 -> hive2_tentacle1 -> hive2_tentacle2 -> hive2_tentacle3;
+hive3 -> hive3_tentacle1 -> hive3_tentacle2 -> hive3_tentacle3;
+hive5 -> hive5_tentacle1 -> hive5_tentacle2 -> hive5_tentacle3;
+hive6 -> hive6_tentacle1 -> hive6_tentacle2 -> hive6_tentacle3;
+
+
+#SCREENS
+
+pc1 -> screen1 -> screen1b;
+pc2 -> screen2;
+pc3 -> screen3;
+pc4 -> screen4 -> screen4b;
+pc5 -> screen5;
+pc6 -> screen6;
+
+
+secret_jar -> secret_lamp0;
+secret_jar -> secret_lamp1;

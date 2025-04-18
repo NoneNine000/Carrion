@@ -1,0 +1,38 @@
+%ifdef LIGHT_WORLD
+	skillswitch2 -> skilldoor1 -> (NOT()) -> skilldoor3 -> skilldoor2 -> (DELAY(0)) -> (PASS(0)) -> skillswitch1;
+%endif
+
+skillswitch1 -> skilldoor2;
+
+hive1 -> (NOT()) -> roar2_tooltip;
+
+#OPTIONAL BACKTRACKING
+
+laser_switch -> laser_door -> laser1;
+laser_switch -> laser2;
+laser_switch -> laser3;
+laser_switch -> laser4;
+laser_switch -> laser5;
+laser_switch -> laser6;
+laser1 -> (PASS(0)) -> (NOT()) -> (laser_switch.EnabledState);
+laser2 -> (PASS(0)) -> (NOT()) -> (laser_switch.EnabledState);
+laser3 -> (PASS(0)) -> (NOT()) -> (laser_switch.EnabledState);
+laser4 -> (PASS(0)) -> (NOT()) -> (laser_switch.EnabledState);
+laser5 -> (PASS(0)) -> (NOT()) -> (laser_switch.EnabledState);
+laser6 -> (PASS(0)) -> (NOT()) -> (laser_switch.EnabledState);
+laser1 -> (PASS(0)) -> laser_switch;
+laser2 -> (PASS(0)) -> laser_switch;
+laser3 -> (PASS(0)) -> laser_switch;
+laser4 -> (PASS(0)) -> laser_switch;
+laser5 -> (PASS(0)) -> laser_switch;
+laser6 -> (PASS(0)) -> laser_switch;
+
+secret_jar -> secret_lamp0;
+secret_jar -> secret_lamp1;
+
+
+#tentacles
+
+hive1 -> hive1_tentacle1 -> hive1_tentacle2 -> hive1_tentacle3 -> hive1_tentacle4;
+hive2 -> hive2_tentacle1 -> hive2_tentacle2 -> hive2_tentacle3 -> hive2_tentacle4;
+hive3 -> hive3_tentacle1 -> hive3_tentacle2 -> hive3_tentacle3;

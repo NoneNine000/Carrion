@@ -1,0 +1,26 @@
+{
+	"object": {
+		"height": 30,
+		"id": 694,
+		"name": "",
+		"properties": [
+			{
+				"name": "TypeStr",
+				"type": "string",
+				"value": "TV_STOCK"
+			},
+			{
+				"name": "Variant",
+				"type": "int",
+				"value": 1
+			}
+		],
+		"rotation": 0,
+		"type": "destructible",
+		"visible": true,
+		"width": 41,
+		"x": 2044,
+		"y": 740
+	},
+	"type": "template"
+}

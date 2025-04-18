@@ -1,0 +1,26 @@
+{
+	"object": {
+		"height": 64,
+		"id": 282,
+		"name": "",
+		"properties": [
+			{
+				"name": "Mode",
+				"type": "int",
+				"value": 1
+			},
+			{
+				"name": "IsOpened",
+				"type": "bool",
+				"value": false
+			}
+		],
+		"rotation": 0,
+		"type": "door",
+		"visible": true,
+		"width": 24,
+		"x": 548,
+		"y": 624
+	},
+	"type": "template"
+}

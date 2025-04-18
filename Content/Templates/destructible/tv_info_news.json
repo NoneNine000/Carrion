@@ -1,0 +1,21 @@
+{
+	"object": {
+		"height": 30,
+		"id": 697,
+		"name": "",
+		"properties": [
+			{
+				"name": "TypeStr",
+				"type": "string",
+				"value": "TV_NEWS"
+			}
+		],
+		"rotation": 0,
+		"type": "destructible",
+		"visible": true,
+		"width": 41,
+		"x": 2172,
+		"y": 912
+	},
+	"type": "template"
+}

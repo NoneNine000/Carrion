@@ -1,0 +1,31 @@
+{
+	"object": {
+		"height": 16,
+		"id": 546,
+		"name": "",
+		"properties": [
+			{
+				"name": "DestroyedVariant",
+				"type": "int",
+				"value": 1
+			},
+			{
+				"name": "Type",
+				"type": "int",
+				"value": 1
+			},
+			{
+				"name": "Variant",
+				"type": "int",
+				"value": 1
+			}
+		],
+		"rotation": 0,
+		"type": "destructible",
+		"visible": true,
+		"width": 16,
+		"x": 2444,
+		"y": 1544
+	},
+	"type": "template"
+}

@@ -1,0 +1,69 @@
+#morphing checkpoint
+
+morph:SetMask(mask1);
+morph:SetMask(mask2);
+morph:SetMask(mask3);
+morph:BuildBowels();
+
+morph_checkpoint -> tentacle1 -> tentacle2 -> tentacle3 -> morph;
+
+
+switch1 -> door1;
+switch2a -> drone1 -> door2a;
+
+switch2b -> door2b -> (NOT()) -> door2a;
+
+door3_event = (SWEEP_EVENT());
+door3_sweep = (SWEEP()) -> [door3_marker, duration 0] -> [door3_event, duration 0] -> [door3_marker, duration 6];
+
+switch3 -> (DELAY(1)) -> door3_sweep;
+(WAIT_FOR_EVENT(door3_event)) -> door3 -> door3b -> door2a;
+
+
+
+door5_sweep = (SWEEP()) -> [door5_marker, duration 0] -> [door5_marker, duration 1.5];
+
+switch5 -> door5_sweep -> (DELAY(0.5)) -> door5;
+
+
+
+
+door4b_event = (SWEEP_EVENT());
+door4c_event = (SWEEP_EVENT());
+door5_event = (SWEEP_EVENT());
+door5_sweep2 = (SWEEP()) -> [door5_marker, duration 0] -> [door5_event, duration 0] -> [door5_marker, duration 3.2];
+door4c_sweep = (SWEEP()) -> [door4c_marker, duration 0] -> [door4c_event, duration 0] -> [door4c_marker, duration 3];
+door4b_sweep = (SWEEP()) -> [door4b_marker, duration 0] -> [door4b_event, duration 0] -> [door4b_marker, duration 5];
+switch4 -> (DELAY(0.5)) -> door5_sweep2 -> (DELAY(3.2)) -> door4c_sweep -> (DELAY(3)) -> door4b_sweep -> (DELAY(6.5)) -> rising_water;
+(WAIT_FOR_EVENT(door5_event)) -> (NOT()) -> switch5;
+(WAIT_FOR_EVENT(door4c_event)) -> door4c;
+(WAIT_FOR_EVENT(door4b_event)) -> (DELAY(0.3)) -> drone2a -> drone2b;
+
+door4b_sweep_fast = (SWEEP()) -> [door4b_marker, duration 0] -> [door4b_marker, duration 4];
+#pwr1 -> (DELAY(1)) -> (NOT()) -> door4b_sweep_fast -> (DELAY(2)) -> (drone2a.LockCircuitNode) -> (drone2b.LockCircuitNode) -> (DELAY(2));
+
+
+#tentacles
+
+hive2 -> hive2_tentacle1 -> hive2_tentacle2 -> hive2_tentacle3;
+hive3 -> hive3_tentacle1 -> hive3_tentacle2 -> hive3_tentacle3;
+
+#SCREENS
+
+pc1 -> screen1;
+pc2 -> screen2;
+pc3 -> screen3;
+pc4 -> screen4;
+pc5 -> screen5;
+pc6 -> screen6;
+pc7 -> screen7;
+pc8 -> screen8;
+pc9 -> screen9;
+pc10 -> screen10 -> screen10b;
+pc11 -> screen11;
+pc12 -> screen12;
+pc13 -> screen13;
+pc14 -> screen14;
+pc15 -> screen15;
+pc16 -> screen16 -> screen16b;
+pc17 -> screen17;

@@ -1,0 +1,48 @@
+{
+	"object": {
+		"height": 0,
+		"id": 578,
+		"name": "",
+		"polygon": [
+			{
+				"x": 0,
+				"y": 0
+			},
+			{
+				"x": 8,
+				"y": -8
+			},
+			{
+				"x": -8,
+				"y": -8
+			},
+			{
+				"x": 8,
+				"y": 8
+			},
+			{
+				"x": -8,
+				"y": 8
+			}
+		],
+		"properties": [
+			{
+				"name": "Depth",
+				"type": "int",
+				"value": 1
+			},
+			{
+				"name": "IsPlayer",
+				"type": "bool",
+				"value": true
+			}
+		],
+		"rotation": 0,
+		"type": "monster",
+		"visible": true,
+		"width": 0,
+		"x": 1721,
+		"y": 940
+	},
+	"type": "template"
+}

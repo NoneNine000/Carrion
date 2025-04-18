@@ -1,0 +1,26 @@
+{
+    "clientId": "53312469157130990",
+    "gameId": "1785384169",
+    "language": "English",
+    "languages": [
+        "en-US"
+    ],
+    "name": "CARRION",
+    "osBitness": [
+        "64"
+    ],
+    "playTasks": [
+        {
+            "category": "game",
+            "isPrimary": true,
+            "languages": [
+                "en-US"
+            ],
+            "name": "CARRION",
+            "path": "Carrion.exe",
+            "type": "FileTask"
+        }
+    ],
+    "rootGameId": "1785384169",
+    "version": 1
+}

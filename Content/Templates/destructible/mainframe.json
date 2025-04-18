@@ -1,0 +1,25 @@
+{ "object":
+    {
+     "height":50,
+     "id":2340,
+     "name":"",
+     "properties":[
+            {
+             "name":"TypeStr",
+             "type":"string",
+             "value":"mainframe"
+            }, 
+            {
+             "name":"Variant",
+             "type":"int",
+             "value":0
+            }],
+     "rotation":0,
+     "type":"destructible",
+     "visible":true,
+     "width":36,
+     "x":4532,
+     "y":1374
+    },
+ "type":"template"
+}

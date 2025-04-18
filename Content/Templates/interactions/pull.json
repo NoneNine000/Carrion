@@ -1,0 +1,21 @@
+{ "object":
+    {
+     "height":0,
+     "id":1685,
+     "name":"",
+     "point":true,
+     "properties":[
+            {
+             "name":"AnimationType",
+             "type":"string",
+             "value":"pull"
+            }],
+     "rotation":0,
+     "type":"generic_interaction",
+     "visible":true,
+     "width":0,
+     "x":744,
+     "y":1119
+    },
+ "type":"template"
+}

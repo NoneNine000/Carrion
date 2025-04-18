@@ -1,0 +1,14 @@
+{
+	"object": {
+		"height": 48,
+		"id": 283,
+		"name": "",
+		"rotation": 0,
+		"type": "obstacle",
+		"visible": true,
+		"width": 32,
+		"x": 956,
+		"y": 376
+	},
+	"type": "template"
+}

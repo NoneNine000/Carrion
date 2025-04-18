@@ -1,0 +1,97 @@
+initial_door_event = (SWEEP_EVENT());
+initial_door_sweep = (SWEEP()) -> [initial_door_marker, duration 0] -> [initial_door_event, duration 0] -> [initial_door_marker, duration 4];
+initial_door_switch -> (DELAY(1)) -> initial_door_sweep;
+(WAIT_FOR_EVENT(initial_door_event)) -> initial_door;
+
+final_laser_event = (SWEEP_EVENT());
+final_laser_sweep = (SWEEP()) -> [final_laser_marker, duration 0] -> [final_laser_event, duration 0] -> [final_laser_marker, duration 2];
+final_laser_switch -> (DELAY(1)) -> final_laser_sweep;
+final_laser -> final_laser_door;
+(WAIT_FOR_EVENT(final_laser_event)) -> (PASS(1)) -> (DELAY(1)) -> final_laser;
+
+final_laser_switch -> (PASS(0)) -> final_laser;
+final_laser -> (PASS(0)) -> (NOT()) -> (final_laser_switch.EnabledState);
+final_laser -> (PASS(0)) -> final_laser_switch;
+
+floodgate_event = (SWEEP_EVENT());
+floodgate_sweep = (SWEEP()) -> [floodgate_marker, duration 0] -> [floodgate_event, duration 0] -> [floodgate_marker, duration 2.5];
+floodgate_switch -> (DELAY(0.5)) -> floodgate_sweep;
+(WAIT_FOR_EVENT(floodgate_event)) -> (floodgate_drone1.ProximityState) -> (floodgate_drone2.ProximityState) -> (floodgate_drone3.ProximityState);
+(WAIT_FOR_EVENT(floodgate_event)) -> floodgate2;
+(WAIT_FOR_EVENT(floodgate_event)) -> (NOT()) -> floodgate4;
+(WAIT_FOR_EVENT(floodgate_event)) -> (DELAY(2.5)) -> floodgate1;
+
+
+#jammer
+jammer_rec1 -> floodgate4;
+jammer_rec1 -> floodgate2;
+jammer_rec1 -> floodgate3;
+jammer_rec1 -> initial_door;
+jammer_rec1:Observe((floodgate_drone1.Drone));
+jammer_rec1:Observe((floodgate_drone2.Drone));
+jammer_rec1:Observe((floodgate_drone3.Drone));
+floodgate_drone3 -> floodgate_drone1 -> floodgate_drone2;
+floodgate_drone3 -> (NOT()) -> floodgate2 -> floodgate3 -> initial_door;
+floodgate_drone3 -> jammer_rec1;
+
+switch1 -> door1;
+
+laser1_switch -> laser1_door -> laser1;
+laser1 -> (PASS(0)) -> (NOT()) -> (laser1_switch.EnabledState);
+laser1 -> (PASS(0)) -> laser1_switch;
+
+laser2_switch -> laser2_door -> laser2;
+laser2 -> (PASS(0)) -> (NOT()) -> (laser2_switch.EnabledState);
+laser2 -> (PASS(0)) -> laser2_switch;
+
+laser3_sweep = (SWEEP()) -> [laser3_marker, duration 0] -> [laser3_marker, duration 1];
+laser3_switch -> laser3_door -> laser3;
+laser3 -> (PASS(0)) -> (NOT()) -> (laser3_switch.EnabledState);# -> laser3_sweep;
+laser3 -> (PASS(0)) -> laser3_switch;# -> laser3_sweep;
+
+
+
+cobweb_door_switch -> cobweb_door2 -> (NOT()) -> cobweb_door1;
+
+
+#morphing checkpoint
+
+morph:SetMask(mask1);
+morph:SetMask(mask2);
+morph:SetMask(mask3);
+morph:SetMask(mask4);
+morph:BuildBowels();
+
+morph_checkpoint -> tentacle1 -> tentacle2 -> tentacle3 -> morph;
+
+
+#laser_off_switch -> (NOT()) -> final_laser;
+final_laser_off_sweep = (SWEEP()) -> [final_laser_marker, duration 0.5] -> [final_laser_marker, duration 1];
+laser_off_switch -> (DELAY(0.5)) -> final_laser_off_sweep;
+laser_off_switch -> (DELAY(1.5)) -> (NOT()) -> final_laser;
+laser_off_switch -> (DELAY(1.55)) -> (NOT()) -> (final_laser_switch.EnabledState);
+laser_off_switch -> (DELAY(1.55)) -> final_laser_door;
+
+#OPTIONAL BACKTRACKING
+
+backtracking_door_switch -> backtracking_door;
+
+b_combo_door_switch -> b_combo_door1 -> (NOT()) -> b_combo_door2;
+
+b_floodgate_switch -> b_floodgate1 -> b_floodgate2;
+
+secret_jar -> secret_lamp0;
+secret_jar -> secret_lamp1;
+
+#tentacles
+
+hive1 -> hive1_tentacle1 -> hive1_tentacle2 -> hive1_tentacle3 -> hive1_tentacle4;
+hive2 -> hive2_tentacle1 -> hive2_tentacle2 -> hive2_tentacle3 -> hive2_tentacle4;
+
+#POWER NODES
+infiltrator_jar -> (NOT()) -> power_node_1;
+infiltrator_jar -> (NOT()) -> power_node_2;
+
+
+#COBWEB/LASER PUZZLE ASSISTANCE
+infiltrator_jar -> (NOT()) -> infiltrator_jar_door;

@@ -1,0 +1,26 @@
+{
+	"object": {
+		"height": 32,
+		"id": 1125,
+		"name": "",
+		"properties": [
+			{
+				"name": "Mode",
+				"type": "int",
+				"value": 0
+			},
+			{
+				"name": "IsOpened",
+				"type": "bool",
+				"value": false
+			}
+		],
+		"rotation": 0,
+		"type": "floodgate",
+		"visible": true,
+		"width": 128,
+		"x": 1280,
+		"y": 288
+	},
+	"type": "template"
+}

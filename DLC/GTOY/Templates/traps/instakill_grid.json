@@ -1,0 +1,14 @@
+{ "object":
+    {
+     "height":64,
+     "id":1510,
+     "name":"",
+     "rotation":0,
+     "type":"instakill_grid",
+     "visible":true,
+     "width":64,
+     "x":608,
+     "y":1040
+    },
+ "type":"template"
+}

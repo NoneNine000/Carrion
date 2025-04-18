@@ -1,0 +1,32 @@
+{
+  "description": "Xmas Special Update",
+  "firstLevel": "xmas_special",
+  "id": 0,
+  "savePrefix": "xmas_special",
+  "tags": [ "xmas 2020" ],
+  "title": "CARRION - Greatest Time of Year (Xmas Special)",
+  "visibility": 2,
+  "menuTheme": "XMAS",
+  "menuLayout": "BOTTOM",
+  "menuOffset": 0,
+  "menuColors": {
+    "normal": {
+      "R": 0.235,
+      "G": 0.757,
+      "B": 0.773,
+      "A": 1.0
+    },
+    "click": {
+      "R": 1.0,
+      "G": 1.0,
+      "B": 1.0,
+      "A": 1.0
+    },
+    "selected": {
+      "R": 1.0,
+      "G": 1.0,
+      "B": 1.0,
+      "A": 1.0
+    }
+  }
+}
